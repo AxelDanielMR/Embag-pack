@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  transition-colors: 300ms;
+}
+
+/* Utility classes */
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(14 165 233);
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 200ms;
+}
+
+.btn-primary:hover {
+  background-color: rgb(2 132 199);
+}
+
+.btn-primary-dark {
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(56 189 248);
+  color: white;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 200ms;
+}
+
+.dark .btn-primary-dark:hover {
+  background-color: rgb(34 197 94);
+}
+
+.btn-outline {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgb(14 165 233);
+  color: rgb(14 165 233);
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background-color 200ms;
+}
+
+.btn-outline:hover {
+  background-color: rgb(240 249 255);
+}
+
+.dark .btn-outline {
+  border-color: rgb(56 189 248);
+  color: rgb(56 189 248);
+}
+
+.dark .btn-outline:hover {
+  background-color: rgb(30 41 59);
+}
+
+.card {
+  border-radius: 0.75rem;
+  border: 1px solid rgb(229 231 235);
+  background-color: white;
+  padding: 1.5rem;
+  transition: all 300ms;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .card {
+  border-color: rgb(30 41 59);
+  background-color: rgb(30 41 59);
+}
+
+.dark .card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.heading-section {
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+@media (min-width: 640px) {
+  .heading-section {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading-section {
+    font-size: 3.75rem;
+  }
+}
+
+.subheading {
+  font-size: 1.125rem;
+  color: rgb(75 85 99);
+}
+
+@media (min-width: 640px) {
+  .subheading {
+    font-size: 1.25rem;
+  }
+}
+
+.dark .subheading {
+  color: rgb(156 163 175);
+}
+
