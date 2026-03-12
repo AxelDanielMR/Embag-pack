@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from '../context/ThemeContext';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -21,12 +22,17 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className={`text-2xl font-bold ${isDark ? 'text-sky-400' : 'text-sky-600'}`}
-            >
-              Embag<span className={isDark ? 'text-sky-300' : 'text-sky-500'}>Pack</span>
+          {/* Logo: large image on the left */}
+          <Link href="/" aria-label="Inicio">
+            <motion.div whileHover={{ scale: 1.02 }} className="flex items-center">
+              <Image
+                src="/images/embag-pack.png"
+                alt="Embag Pack"
+                width={144}
+                height={144}
+                priority
+                style={{ objectFit: 'contain' }}
+              />
             </motion.div>
           </Link>
 
