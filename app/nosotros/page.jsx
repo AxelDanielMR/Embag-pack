@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import AboutSection from '../components/AboutSection';
+import MisionVisionSection from '../components/MisionVisionSection';
 
 export default function Nosotros() {
   const { isDark } = useTheme();
@@ -35,6 +37,8 @@ export default function Nosotros() {
 
   return (
     <main className={`min-h-screen ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
+      <AboutSection />
+      <MisionVisionSection />
       {/* Hero */}
       <section className="container-custom section">
         <motion.div
