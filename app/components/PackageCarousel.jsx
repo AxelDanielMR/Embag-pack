@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useTheme } from '../context/ThemeContext';
@@ -8,7 +8,6 @@ import { useTheme } from '../context/ThemeContext';
 export default function PackageCarousel({ currentIndex, setCurrentIndex }) {
   const { isDark } = useTheme();
   const [isHovering, setIsHovering] = useState(false);
-  const carouselRef = useRef(null);
 
   const packages = [
     {
@@ -48,28 +47,7 @@ export default function PackageCarousel({ currentIndex, setCurrentIndex }) {
     return () => clearInterval(interval);
   }, [isHovering, packages.length, setCurrentIndex]);
 
-  // Wheel event handler
-  useEffect(() => {
-    const handleWheel = (e) => {
-      if (!carouselRef.current?.contains(e.target)) return;
-      
-      e.preventDefault();
-      
-      if (e.deltaY > 0) {
-        // Scroll down - next item
-        setCurrentIndex((prev) => (prev + 1) % packages.length);
-      } else {
-        // Scroll up - prev item
-        setCurrentIndex((prev) => (prev - 1 + packages.length) % packages.length);
-      }
-    };
-
-    const carousel = carouselRef.current;
-    if (carousel) {
-      carousel.addEventListener('wheel', handleWheel, { passive: false });
-      return () => carousel.removeEventListener('wheel', handleWheel);
-    }
-  }, [packages.length, setCurrentIndex]);
+  // Removed wheel-based navigation for better UX (handled via buttons/clicks only)
 
   const cardVariants = {
     enter: (direction) => ({
@@ -87,9 +65,7 @@ export default function PackageCarousel({ currentIndex, setCurrentIndex }) {
   };
 
   return (
-    <div
-      ref={carouselRef}
-      className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch"
+    <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

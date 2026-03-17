@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 // ─── Data ─────────────────────────────────────────────────────
 const STATS = [
@@ -43,10 +44,13 @@ const VALUES = [
 ];
 
 // ─── Value Card ───────────────────────────────────────────────
-function ValueCard({ value, index }) {
+function ValueCard({ value, index, isDark, cardBg, cardBorder, cardHover }) {
   return (
     <motion.div
-      className="group relative px-10 py-9 bg-white border-r border-[rgba(8,74,119,0.08)] last:border-r-0 cursor-default transition-colors duration-300 hover:bg-[#f0f6fb]"
+      className="group relative px-10 py-9 last:border-r-0 cursor-default transition-colors duration-300"
+      style={{ background: cardBg, borderRight: `1px solid ${cardBorder}` }}
+      onMouseEnter={(e) => { e.currentTarget.style.background = cardHover; }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = cardBg; }}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -61,17 +65,21 @@ function ValueCard({ value, index }) {
       />
 
       {/* Icon */}
-      <div className="w-9 h-9 rounded-md bg-[rgba(8,74,119,0.07)] flex items-center justify-center text-[#084a77] mb-4">
+      <div
+        className="w-9 h-9 rounded-md flex items-center justify-center mb-4 transition-colors duration-300"
+        style={{ background: isDark ? 'rgba(56,189,248,0.1)' : 'rgba(8,74,119,0.07)', color: isDark ? '#38bdf8' : '#084a77' }}
+      >
         {value.icon}
       </div>
 
       <h3
-        className="text-sm font-bold tracking-[0.01em] text-[#084a77] mb-2"
-        style={{ fontFamily: 'Syne, sans-serif' }}
+        className="text-sm font-bold tracking-[0.01em] mb-2 transition-colors duration-300"
+        style={{ fontFamily: 'Syne, sans-serif', color: isDark ? '#38bdf8' : '#084a77' }}
       >
         {value.title}
       </h3>
-      <p className="text-[13px] font-light leading-[1.7] text-[#666]">
+
+      <p className="text-[13px] font-light leading-[1.7] transition-colors duration-300" style={{ color: isDark ? 'rgba(186,220,244,0.65)' : '#666' }}>
         {value.desc}
       </p>
     </motion.div>
@@ -80,8 +88,18 @@ function ValueCard({ value, index }) {
 
 // ─── About Section ────────────────────────────────────────────
 export default function AboutSection() {
+  const { isDark } = useTheme();
+  
+  const bgColor = isDark ? '#0a1620' : '#f5f2ed';
+  const leftBg = isDark ? '#051424' : '#084a77';
+  const textLight = isDark ? 'rgba(210,235,252,0.85)' : '#555';
+  const textDark = isDark ? 'rgba(186,220,244,0.5)' : '#666';
+  const cardBg = isDark ? '#0f1f2f' : '#ffffff';
+  const cardBorder = isDark ? 'rgba(56,189,248,0.15)' : 'rgba(8,74,119,0.08)';
+  const cardHover = isDark ? '#1a2d3f' : '#f0f6fb';
+
   return (
-    <article className="relative overflow-hidden bg-[#f5f2ed] -mt-40 md:-mt-56">
+    <article className={`relative overflow-hidden -mt-40 md:-mt-56 transition-colors duration-300`} style={{ background: bgColor }}>
       {/* Watermark "11" */}
       <span
         className="pointer-events-none select-none absolute -top-5 -right-5 leading-none z-0"
@@ -102,7 +120,8 @@ export default function AboutSection() {
 
         {/* Left — dark panel */}
         <motion.div
-          className="relative flex flex-col justify-between bg-[#084a77] px-14 pt-16 pb-14 overflow-hidden"
+          className="relative flex flex-col justify-between px-14 pt-16 pb-14 overflow-hidden transition-colors duration-300"
+          style={{ background: leftBg }}
           initial={{ opacity: 0, x: -32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -118,9 +137,9 @@ export default function AboutSection() {
 
           {/* Diagonal cut */}
           <div
-            className="absolute top-0 -right-px bottom-0 w-14 pointer-events-none hidden md:block"
+            className="absolute top-0 -right-px bottom-0 w-14 pointer-events-none hidden md:block transition-colors duration-300"
             style={{
-              background: '#f5f2ed',
+              background: bgColor,
               clipPath: 'polygon(100% 0, 100% 100%, 0 100%)',
             }}
           />
@@ -223,7 +242,8 @@ export default function AboutSection() {
 
         {/* Right — light panel */}
         <motion.div
-          className="flex flex-col justify-center bg-[#f5f2ed] px-14 md:pl-20 md:pr-14 py-16"
+          className="flex flex-col justify-center px-14 md:pl-20 md:pr-14 py-16 transition-colors duration-300"
+          style={{ background: bgColor }}
           initial={{ opacity: 0, x: 32 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -240,8 +260,8 @@ export default function AboutSection() {
 
           {/* Body */}
           <motion.p
-            className="text-[15px] font-light leading-[1.85] text-[#3a3a3a] mb-6"
-            style={{ fontFamily: 'DM Sans, sans-serif' }}
+            className="text-[15px] font-light leading-[1.85] mb-6 transition-colors duration-300"
+            style={{ fontFamily: 'DM Sans, sans-serif', color: isDark ? 'rgba(210,235,252,0.85)' : '#3a3a3a' }}
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -262,9 +282,10 @@ export default function AboutSection() {
 
           {/* Quote */}
           <motion.blockquote
-            className="text-base font-light italic leading-[1.65] text-[#084a77] pl-5"
+            className="text-base font-light italic leading-[1.65] pl-5 transition-colors duration-300"
             style={{
               fontFamily: 'DM Sans, sans-serif',
+              color: isDark ? 'rgba(56,189,248,0.9)' : '#084a77',
               borderLeft: '2px solid #00d4ff',
             }}
             initial={{ opacity: 0 }}
@@ -272,7 +293,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.35 }}
           >
-            En Embag Pack, no solo fabricamos empaques — creamos soluciones que
+            En creamos soluciones que
             protegen, agregando valor y confianza a su producto, respaldados por
             la experiencia y el compromiso de nuestro equipo humano.
           </motion.blockquote>
@@ -281,11 +302,11 @@ export default function AboutSection() {
 
       {/* ── Values band ── */}
       <div
-        className="grid grid-cols-1 md:grid-cols-3 bg-white"
-        style={{ borderTop: '1px solid rgba(8,74,119,0.08)' }}
+        className="grid grid-cols-1 md:grid-cols-3 transition-colors duration-300"
+        style={{ background: cardBg, borderTop: `1px solid ${cardBorder}` }}
       >
         {VALUES.map((v, i) => (
-          <ValueCard key={v.title} value={v} index={i} />
+          <ValueCard key={v.title} value={v} index={i} isDark={isDark} cardBg={cardBg} cardBorder={cardBorder} cardHover={cardHover} />
         ))}
       </div>
     </article>

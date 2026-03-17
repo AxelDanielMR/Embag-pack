@@ -30,6 +30,7 @@ const slides = [
 export default function CarouselPresentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { isDark } = useTheme();
+  const isImage01 = slides[currentSlide].image === '/images/image_01.jpg';
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -188,7 +189,10 @@ export default function CarouselPresentation() {
               src={slides[currentSlide].image}
               alt={`Slide ${currentSlide + 1}`}
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{
+                objectFit: 'cover',
+                objectPosition: isImage01 ? '20% center' : 'center',
+              }}
               priority
             />
           </div>
@@ -211,7 +215,10 @@ export default function CarouselPresentation() {
               src={slides[currentSlide].image}
               alt={`Slide ${currentSlide + 1}`}
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{
+                objectFit: 'cover',
+                objectPosition: isImage01 ? '20% center' : 'center',
+              }}
               priority
               className="transition-transform duration-500"
             />
