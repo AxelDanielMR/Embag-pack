@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Header from './Header';
 
 const contactInfo = {
   address: {
@@ -101,6 +102,7 @@ export default function Contact() {
       className="relative w-full overflow-hidden"
       style={{ background: '#04111e', minHeight: '100vh', fontFamily: 'DM Sans, sans-serif' }}
     >
+      <Header />
       {/* Top accent bar */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '4px',
@@ -394,6 +396,6 @@ export default function Contact() {
         </div>
 
       </div>
-    </section>
+      </section>
   );
 }
