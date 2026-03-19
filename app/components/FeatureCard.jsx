@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { useEffect, useState } from 'react';
 
 const Counter = ({ from, to, duration }) => {
@@ -38,6 +39,7 @@ export default function FeatureCard({
   tabs = [], // optional: array of { key, label, icon, title, summary }
 }) {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState(tabs && tabs.length ? tabs[0].key : null);
   return (
     <div className="relative w-full" style={{ minHeight: '460px' }}>
@@ -64,7 +66,7 @@ export default function FeatureCard({
                 <Counter from={0} to={250} duration={2000} />+
               </div>
               <p className={`text-sm sm:text-xl font-semibold ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
-                Clientes Satisfechos
+                {t('featureCard.counters.satisfiedClients')}
               </p>
             </motion.div>
 
@@ -79,7 +81,7 @@ export default function FeatureCard({
                 <Counter from={0} to={15000} duration={2000} />
               </div>
               <p className={`text-sm sm:text-xl font-semibold ${isDark ? 'text-slate-300' : 'text-gray-700'}`}>
-                Toneladas Producidas
+                {t('featureCard.counters.tonnesProduced')}
               </p>
             </motion.div>
           </div>

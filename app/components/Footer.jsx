@@ -2,12 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
-const NAV_LINKS = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Empaques', href: '/empaques' },
-  { label: 'Contacto', href: '/contacto' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const PHONE_NUMBERS = [
   { label: '(351) 516 2740', href: 'tel:+523515162740' },
@@ -31,6 +26,14 @@ function SectionLabel({ children }) {
 
 // ─── Footer ───────────────────────────────────────────────────
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const NAV_LINKS = [
+    { label: t('header.nav.home'), href: '/' },
+    { label: t('header.nav.packaging'), href: '/empaques' },
+    { label: t('header.nav.contact'), href: '/contacto' },
+  ];
+
   return (
     <footer className="relative overflow-hidden" style={{ background: '#051e30' }}>
       {/* Top accent line */}
@@ -68,19 +71,19 @@ export default function Footer() {
             Embag<span style={{ color: '#00d4ff' }}>.</span>Pack
           </div>
           <p className="text-[11px] tracking-[0.2em] uppercase mb-7" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'DM Sans, sans-serif' }}>
-            Desde 2014
+            {t('footer.byline')}
           </p>
 
           {/* Address */}
           <div className="text-[13px] font-light leading-[1.85]" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'DM Sans, sans-serif' }}>
-            Jacona, Michoacán
+            {t('footer.address.city')}
             <br />
-            Lerdo de Tejada Poniente #150
+            {t('footer.address.street')}
             <br />
-            CP 59800, México
+            {t('footer.address.postalCode')}
 
             <strong className="block font-normal text-[11px] tracking-[0.15em] uppercase mt-5 mb-0.5" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Teléfono
+              {t('footer.phone')}
             </strong>
             {PHONE_NUMBERS.map((p, i) => (
               <span key={p.href}>
@@ -95,7 +98,7 @@ export default function Footer() {
 
         {/* ── Col 2: Menu ── */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-          <SectionLabel>Menú</SectionLabel>
+          <SectionLabel>{t('footer.menu')}</SectionLabel>
 
           <ul className="flex flex-col gap-2.5 list-none p-0 m-0">
             {NAV_LINKS.map((link) => (
@@ -111,7 +114,7 @@ export default function Footer() {
 
         {/* ── Col 3: CTA ── */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <SectionLabel>Contacto</SectionLabel>
+          <SectionLabel>{t('footer.contact')}</SectionLabel>
 
           {/* CTA box with corner accents */}
           <div className="relative p-6 rounded-sm" style={{ background: 'rgba(0,212,255,0.05)', border: '1px solid rgba(0,212,255,0.18)' }}>
@@ -120,9 +123,9 @@ export default function Footer() {
             {/* Corner accents — bottom-right */}
             <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none" style={{ borderBottom: '1.5px solid #00d4ff', borderRight: '1.5px solid #00d4ff' }} />
 
-            <p className="text-[10px] tracking-[0.2em] uppercase mb-2.5" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'DM Sans, sans-serif' }}>¿Trabajemos juntos?</p>
+            <p className="text-[10px] tracking-[0.2em] uppercase mb-2.5" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'DM Sans, sans-serif' }}>{t('footer.cta.heading')}</p>
 
-            <p className="text-[15px] font-bold leading-snug text-white mb-5" style={{ fontFamily: 'Syne, sans-serif' }}>¿Interesado en trabajar con nosotros?</p>
+            <p className="text-[15px] font-bold leading-snug text-white mb-5" style={{ fontFamily: 'Syne, sans-serif' }}>{t('footer.cta.title')}</p>
 
             <a href="mailto:contacto@embag.com.mx" className="block text-[13px] break-all transition-opacity duration-200 hover:opacity-75" style={{ color: '#00d4ff', fontFamily: 'DM Sans, sans-serif' }}>
               contacto@embag.com.mx
@@ -136,7 +139,7 @@ export default function Footer() {
         <p className="text-[12px] tracking-[0.04em]" style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'DM Sans, sans-serif' }}>
           © 2020–{new Date().getFullYear().toString().slice(-2)} Embag Pack
           <span style={{ color: 'rgba(255,255,255,0.12)', margin: '0 8px' }}>·</span>
-          Todos los derechos reservados
+          {t('footer.copyright')}
         </p>
 
         {/* Accent dot */}

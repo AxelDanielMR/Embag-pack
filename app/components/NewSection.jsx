@@ -2,30 +2,31 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
-const IMAGES = [
+const getIMAGES = (t) => [
   {
     id: "10",
     src: "/images/image_10.jpg",
-    label: "Innovación",
+    label: t('newSection.images.innovation'),
     offset: "mt-0",
   },
   {
     id: "11",
     src: "/images/image_11.jpg",
-    label: "Calidad",
+    label: t('newSection.images.quality'),
     offset: "mt-7",
   },
   {
     id: "12",
     src: "/images/image_12.jpg",
-    label: "Sostenibilidad",
+    label: t('newSection.images.sustainability'),
     offset: "-mt-3",
   },
   {
     id: "02",
     src: "/images/image_02.jpg",
-    label: "Eficiencia",
+    label: t('newSection.images.efficiency'),
     offset: "mt-4",
   },
 ];
@@ -123,6 +124,8 @@ function TiltCard({
 
 // ─── New Section ─────────────────────────────────────────────
 export default function NewSection() {
+  const { t } = useLanguage();
+  const IMAGES = getIMAGES(t);
   return (
     <section
       className="relative flex items-center gap-16 px-14 py-24 overflow-hidden min-h-[720px] w-full"
@@ -162,7 +165,7 @@ export default function NewSection() {
             className="text-[11px] tracking-[0.22em] uppercase font-normal"
             style={{ color: "#00d4ff", fontFamily: "DM Sans, sans-serif" }}
           >
-            Inocuidad · Confianza
+            {t('newSection.eyebrow')}
           </span>
         </motion.div>
 
@@ -174,15 +177,15 @@ export default function NewSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
         >
-          Garantizamos
+          {t('newSection.title1')}
           <br />
-          soluciones
+          {t('newSection.title2')}
           <br />
           <em className="not-italic font-bold" style={{ color: "#00d4ff" }}>
-            seguras
+            {t('newSection.title3')}
           </em>
           <br />
-          para tus productos.
+          {t('newSection.title4')}
         </motion.h1>
 
         {/* Body */}
@@ -193,8 +196,7 @@ export default function NewSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Nos enfocamos en la inocuidad y la confianza para crear empaques que
-          protejan tus productos y cumplan con los más altos estándares de calidad.
+          {t('newSection.description')}
         </motion.p>
 
         {/* CTA */}
@@ -215,7 +217,7 @@ export default function NewSection() {
             borderColor: "#00d4ff",
           }}
         >
-          Conoce más
+          {t('newSection.button')}
           <motion.span
             className="text-base"
             whileHover={{ x: 4 }}

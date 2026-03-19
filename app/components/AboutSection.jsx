@@ -2,18 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 // ─── Data ─────────────────────────────────────────────────────
-const STATS = [
-  { num: '11', sup: '+', label: 'Años de experiencia' },
-  { num: '100', sup: '%', label: 'Calidad certificada' },
-  { num: 'MX', sup: '', label: 'Presencia nacional' },
+const getSTATS = (t) => [
+  { num: '11', sup: '+', label: t('aboutSection.stats.yearsExperience') },
+  { num: '100', sup: '%', label: t('aboutSection.stats.certifiedQuality') },
+  { num: 'MX', sup: '', label: t('aboutSection.stats.nationalPresence') },
 ];
 
-const VALUES = [
+const getVALUES = (t) => [
   {
-    title: 'Inocuidad y Calidad',
-    desc: 'Certificaciones rigurosas que garantizan la seguridad e integridad de cada empaque que fabricamos.',
+    title: t('aboutSection.values.inocuidadCalidad.title'),
+    desc: t('aboutSection.values.inocuidadCalidad.description'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -21,8 +22,8 @@ const VALUES = [
     ),
   },
   {
-    title: 'Innovación Constante',
-    desc: 'Soluciones de empaque a la vanguardia, adaptadas a las necesidades reales de cada industria.',
+    title: t('aboutSection.values.innovacion.title'),
+    desc: t('aboutSection.values.innovacion.description'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
         <circle cx="12" cy="12" r="3" />
@@ -31,8 +32,8 @@ const VALUES = [
     ),
   },
   {
-    title: 'Equipo Comprometido',
-    desc: 'Personas dedicadas que respaldan cada proyecto con experiencia, precisión y vocación de servicio.',
+    title: t('aboutSection.values.equipo.title'),
+    desc: t('aboutSection.values.equipo.description'),
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-[18px] h-[18px]">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -89,6 +90,10 @@ function ValueCard({ value, index, isDark, cardBg, cardBorder, cardHover }) {
 // ─── About Section ────────────────────────────────────────────
 export default function AboutSection() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+
+  const STATS = getSTATS(t);
+  const VALUES = getVALUES(t);
   
   const bgColor = isDark ? '#0a1620' : '#f5f2ed';
   const leftBg = isDark ? '#051424' : '#084a77';
@@ -151,7 +156,7 @@ export default function AboutSection() {
               className="text-[10px] tracking-[0.22em] uppercase font-normal"
               style={{ color: '#00d4ff', fontFamily: 'DM Sans, sans-serif' }}
             >
-              Desde 2014
+              {t('aboutSection.leftPanel.eyebrow')}
             </span>
           </div>
 
@@ -165,13 +170,13 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
             >
-              Nosotros
+              {t('aboutSection.leftPanel.title')}
             </motion.h1>
             <p
               className="font-semibold text-base tracking-[0.04em] mb-8"
               style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'Syne, sans-serif' }}
             >
-              Embag Pack · México
+              {t('aboutSection.leftPanel.subtitle')}
             </p>
 
             <motion.p
@@ -185,10 +190,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              Soluciones de{' '}
-              <span style={{ color: '#00d4ff' }}>Inocuidad</span>
-              <br />
-              en Empaques
+              {t('aboutSection.leftPanel.description')}
             </motion.p>
           </div>
 
@@ -255,7 +257,7 @@ export default function AboutSection() {
             style={{ fontFamily: 'DM Sans, sans-serif' }}
           >
             <span className="w-5 h-0.5 bg-[#084a77] flex-shrink-0" />
-            Quiénes somos
+            {t('ourTeam.eyebrow')}
           </div>
 
           {/* Body */}
@@ -267,17 +269,15 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Somos una empresa líder en{' '}
+            {t('aboutSection.mainContent.paragraphStart')}{' '}
             <strong className="font-semibold text-[#084a77]">
-              soluciones de empaque certificado
-            </strong>{' '}
-            con 11 años de experiencia transformando la industria del empaque en
-            México. Nuestra excelencia operativa y compromiso con la calidad e
-            inocuidad nos han posicionado como{' '}
+              {t('aboutSection.mainContent.bold1')}
+            </strong>
+            {' '}{t('aboutSection.mainContent.paragraphMiddle')}{' '}
             <strong className="font-semibold text-[#084a77]">
-              socios estratégicos
-            </strong>{' '}
-            de empresas líderes en diversos sectores industriales.
+              {t('aboutSection.mainContent.bold2')}
+            </strong>
+            {' '}{t('aboutSection.mainContent.paragraphEnd')}
           </motion.p>
 
           {/* Quote */}
@@ -293,9 +293,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.35 }}
           >
-            En creamos soluciones que
-            protegen, agregando valor y confianza a su producto, respaldados por
-            la experiencia y el compromiso de nuestro equipo humano.
+            {t('aboutSection.mainContent.quote')}
           </motion.blockquote>
         </motion.div>
       </div>

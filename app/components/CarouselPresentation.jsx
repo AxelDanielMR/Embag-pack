@@ -4,32 +4,35 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import ButtonHover from './ButtonHover';
-
-const slides = [
-  {
-    id: 1,
-    title: 'Procesos certificados para tu seguridad',
-    description: 'Con nuestra experiencia y dedicación, garantizamos que sus productos estén bien protegidos y cumplan con los estándares más altos.',
-    image: '/images/image_01.jpg',
-  },
-  {
-    id: 2,
-    title: 'Garantizando inocuidad en tus empaques',
-    description: 'Garantizando Inocuidad con Nuestros Servicios de Empaque: Tenemos el Compromiso con la Calidad y la Seguridad en Cada Producto.',
-    image: '/images/image_02.jpg',
-  },
-  {
-    id: 3,
-    title: 'Entrega rápida y confiable',
-    description: 'Con nuestra red logística nacional, garantizamos que tus empaques lleguen a tiempo y en perfecto estado.',
-    image: '/images/image_03.jpg',
-  },
-];
 
 export default function CarouselPresentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+
+  const slides = [
+    {
+      id: 1,
+      title: t('carousel.slide1.title'),
+      description: t('carousel.slide1.description'),
+      image: '/images/image_01.jpg',
+    },
+    {
+      id: 2,
+      title: t('carousel.slide2.title'),
+      description: t('carousel.slide2.description'),
+      image: '/images/image_02.jpg',
+    },
+    {
+      id: 3,
+      title: t('carousel.slide3.title'),
+      description: t('carousel.slide3.description'),
+      image: '/images/image_03.jpg',
+    },
+  ];
+
   const isImage01 = slides[currentSlide].image === '/images/image_01.jpg';
 
   const nextSlide = () => {
@@ -100,7 +103,7 @@ export default function CarouselPresentation() {
               ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
               : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
           }`}
-          aria-label="Anterior"
+          aria-label={t('carousel.navigation.previous')}
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -117,7 +120,7 @@ export default function CarouselPresentation() {
               ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
               : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
           }`}
-          aria-label="Siguiente"
+          aria-label={t('carousel.navigation.next')}
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -171,7 +174,7 @@ export default function CarouselPresentation() {
               variants={elementVariants}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <ButtonHover href="#">Saber más</ButtonHover>
+              <ButtonHover href="#">{t('carousel.navigation.learnMore')}</ButtonHover>
             </motion.div>
           </motion.div>
         </AnimatePresence>

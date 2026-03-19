@@ -3,11 +3,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Header() {
   const { isDark, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [logoHidden, setLogoHidden] = useState(false);
 
@@ -21,10 +23,10 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: '/', label: 'Inicio' },
-    { href: '/nosotros', label: 'Nosotros' },
-    { href: '/empaques', label: 'Empaques' },
-    { href: '/contacto', label: 'Contacto' },
+    { href: '/', label: t('header.nav.home') },
+    { href: '/nosotros', label: t('header.nav.about') },
+    { href: '/empaques', label: t('header.nav.packaging') },
+    { href: '/contacto', label: t('header.nav.contact') },
   ];
 
   return (
@@ -137,6 +139,21 @@ export default function Header() {
                   </svg>
                 )}
               </motion.button>
+
+              {/* Language Toggle */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={toggleLanguage}
+                className={`px-3 py-2 rounded-full font-bold text-sm transition-colors duration-200 ${
+                  isDark
+                    ? 'bg-slate-600 text-cyan-300 hover:bg-slate-500'
+                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                }`}
+                aria-label="Toggle language"
+              >
+                {language === 'es' ? 'EN' : 'ES'}
+              </motion.button>
             </div>
 
             {/* Mobile Navigation */}
@@ -161,6 +178,21 @@ export default function Header() {
                     {item.label}
                   </Link>
                 ))}
+                
+                {/* Mobile Language Toggle */}
+                <button
+                  onClick={() => {
+                    toggleLanguage();
+                    setIsOpen(false);
+                  }}
+                  className={`block w-full text-left py-2 px-3 font-medium transition-colors duration-200 rounded-md mt-2 ${
+                    isDark
+                      ? 'text-cyan-300 hover:bg-slate-600'
+                      : 'text-white hover:bg-blue-600'
+                  }`}
+                >
+                  {language === 'es' ? '🌐 English' : '🌐 Español'}
+                </button>
               </motion.div>
             )}
           </nav>

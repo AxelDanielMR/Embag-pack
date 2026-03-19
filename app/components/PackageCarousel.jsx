@@ -4,35 +4,37 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function PackageCarousel({ currentIndex, setCurrentIndex }) {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
   const [isHovering, setIsHovering] = useState(false);
 
   const packages = [
     {
       id: 'agro',
       image: '/images/image_06.jpg',
-      title: 'Empaques Agroindustria',
-      description: 'La agroindustria requiere soluciones de empaque especializadas que abarcan desde la producción de alimentos hasta el procesamiento, almacenamiento y distribución. En Embag Pack entendemos estas necesidades con 15 años de experiencia. Garantizamos protección superior, trazabilidad completa, versatilidad en diseños y certificación de calidad.',
+      title: t('packageCarousel.categories.agroIndustry'),
+      description: t('packageCarousel.descriptions.agroIndustry'),
     },
     {
       id: 'alimentos',
       image: '/images/image_07.jpg',
-      title: 'Alimentos',
-      description: 'Nos hemos consolidado como expertos en empaques de grado alimenticio, respaldados por certificaciones Kosher y SQF. La seguridad e inocuidad de los alimentos es primordial, por eso cada producto está diseñado bajo estrictos controles de calidad. Ofrecemos inocuidad garantizada y trazabilidad completa.',
+      title: t('packageCarousel.categories.food'),
+      description: t('packageCarousel.descriptions.food'),
     },
     {
       id: 'automotriz',
       image: '/images/image_08.jpg',
-      title: 'Automotriz',
-      description: 'Desarrollamos empaques especializados que cumplen con exigentes especificaciones del sector automotriz. Nuestras soluciones protegen componentes críticos y mantienen la integridad durante la cadena de suministro. Ofrecemos protección superior contra daños y control de estática.',
+      title: t('packageCarousel.categories.automotive'),
+      description: t('packageCarousel.descriptions.automotive'),
     },
     {
       id: 'industrial',
       image: '/images/image_09.jpg',
-      title: 'Empaques Industriales',
-      description: 'Ofrecemos soluciones versátiles y especializadas para las necesidades específicas de cada sector industrial. Con 15 años de experiencia y certificaciones internacionales, garantizamos protección, eficiencia y calidad en todos nuestros empaques.',
+      title: t('packageCarousel.categories.industrial'),
+      description: t('packageCarousel.descriptions.industrial'),
     },
   ];
 

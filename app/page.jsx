@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from './context/ThemeContext';
+import { useLanguage } from './context/LanguageContext';
 import Link from 'next/link';
 import CarouselPresentation from './components/CarouselPresentation';
 import FeatureCard from './components/FeatureCard';
@@ -14,6 +15,7 @@ import CertificationsSection from './components/CertificationsSection';
 
 export default function Home() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,9 +38,9 @@ export default function Home() {
   };
 
   const stats = [
-    { number: '300+', label: 'Clientes Satisfechos', icon: '👥' },
-    { number: '20,000+', label: 'Productos Disponibles', icon: '📦' },
-    { number: 'Nacional', label: 'Cobertura a Nivel País', icon: '🗺️' },
+    { number: '300+', label: t('homePage.stats.satisfiedClients'), icon: '👥' },
+    { number: '20,000+', label: t('homePage.stats.availableProducts'), icon: '📦' },
+    { number: 'Nacional', label: t('homePage.stats.nationalCoverage'), icon: '🗺️' },
   ];
 
   return (
@@ -52,8 +54,8 @@ export default function Home() {
           {/* Feature Card 1 - Stats */}
           <FeatureCard
             type="stats"
-            title="Ofreciendo el mejor Empaque Flexible de Polietileno de baja densidad certificado"
-            description="En Embag Pack, priorizamos su satisfacción al ofrecer un empaque certificado, con procesos basados en el desarrollo de nuestro capital humano. Comprometido con la inocuidad, calidad y el servicio a nuestros clientes y sociedad en general."
+            title={t('homePage.featureCards.title1')}
+            description={t('homePage.featureCards.description1')}
           />
 
           {/* Feature Card 2 - Image Section */}
@@ -61,9 +63,9 @@ export default function Home() {
             type="image"
             leftContent="/images/image_04.jpg"
             isLeftImage={true}
-            title="Priorizando la Seguridad Interna y la Protección del Cliente"
-            description="En Embag Pack, estamos dedicados a brindar a nuestros clientes el más alto nivel de inocuidad y calidad, a través de nuestras certificaciones y nuestro compromiso con medidas de seguridad internas, alcanzamos la seguridad y confianza de nuestros clientes al trabajar con nosotros."
-            badges={['Inocuidad', 'Procesos Certificados', 'Materia Prima']}
+            title={t('homePage.featureCards.title2')}
+            description={t('homePage.featureCards.description2')}
+            badges={[t('homePage.badges.foodSafety'), t('homePage.badges.certifiedProcesses'), t('homePage.badges.rawMaterials')]}
           />
 
           {/* Feature Card 3 - Image with industry tabs */}
@@ -74,24 +76,24 @@ export default function Home() {
             tabs={[
               {
                 key: 'automotriz',
-                label: 'Automotriz',
+                label: t('homePage.industries.automotive'),
                 icon: <Truck className="w-5 h-5" />,
-                title: 'Soluciones de Empaque Especializadas para la Industria Automotriz',
-                summary: 'En Embag Pack, comprendemos la importancia crítica del empaque en la industria automotriz. Nuestros servicios están diseñados para proteger componentes delicados y optimizar la cadena de suministro con soluciones personalizadas.'
+                title: t('homePage.industries.automotiveTitle'),
+                summary: t('homePage.industries.automotiveDesc')
               },
               {
                 key: 'alimenticia',
-                label: 'Alimenticia',
+                label: t('homePage.industries.foodBeverage'),
                 icon: <Coffee className="w-5 h-5" />,
-                title: 'Soluciones de Empaque Innovadoras para la Industria Alimenticia',
-                summary: 'En Embag Pack, reconocemos la importancia de la seguridad y frescura en la industria alimenticia. Ofrecemos soluciones que preservan calidad y cumplen normativas de inocuidad alimentaria.'
+                title: t('homePage.industries.foodTitle'),
+                summary: t('homePage.industries.foodDesc')
               },
               {
                 key: 'agro',
-                label: 'Agroindustria',
+                label: t('homePage.industries.agroIndustry'),
                 icon: <Leaf className="w-5 h-5" />,
-                title: 'Soluciones de Empaque Confiables para la Agroindustria',
-                summary: 'Entendemos la importancia de la trazabilidad y protección en la agroindustria. Brindamos soluciones que garantizan seguridad, cumplimiento normativo y preservación del producto.'
+                title: t('homePage.industries.agroTitle'),
+                summary: t('homePage.industries.agroDesc')
               },
             ]}
           />

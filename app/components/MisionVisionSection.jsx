@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 function DotCanvas() {
   const canvasRef = useRef(null);
@@ -106,6 +107,7 @@ function MvCard({ variant, letter, title, body, tag, tagIcon, icon, delay = 0, i
 
 export default function MisionVisionSection() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
   const bgColor = isDark ? "#0a1620" : "#f5f2ed";
   const textColor = isDark ? "rgba(210,235,252,0.85)" : "#0a1a2a";
   const subtextColor = isDark ? "rgba(186,220,244,0.6)" : "#888";
@@ -121,12 +123,12 @@ export default function MisionVisionSection() {
         <div>
           <div className="flex items-center gap-2.5 mb-3">
             <span className={`w-6 h-[1.5px] ${isDark ? 'bg-[#38bdf8]' : 'bg-[#084a77]'}`} />
-            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: isDark ? '#38bdf8' : '#084a77' }}>Embag Pack · Valores corporativos</span>
+            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: isDark ? '#38bdf8' : '#084a77' }}>{t('misionVision.eyebrow')}</span>
           </div>
-          <h2 className="text-[48px] font-extrabold leading-none tracking-tight transition-colors duration-300" style={{ fontFamily: 'Syne, sans-serif', color: textColor }}>Misión &amp; <span className={isDark ? 'text-[#38bdf8]' : 'text-[#084a77]'}>Visión</span></h2>
+          <h2 className="text-[48px] font-extrabold leading-none tracking-tight transition-colors duration-300" style={{ fontFamily: 'Syne, sans-serif', color: textColor }}>Misión &amp; <span className={isDark ? 'text-[#38bdf8]' : 'text-[#084a77]'}>{t('misionVision.title').split(' &')[1]?.trim()}</span></h2>
         </div>
 
-        <p className="max-w-xs text-[14px] font-light leading-[1.7] md:text-right transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: subtextColor }}>Los principios que guían cada decisión, cada empaque y cada relación con nuestros clientes desde 2014.</p>
+        <p className="max-w-xs text-[14px] font-light leading-[1.7] md:text-right transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: subtextColor }}>{t('misionVision.description')}</p>
       </motion.header>
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 px-14 pb-14 gap-0">
@@ -135,32 +137,28 @@ export default function MisionVisionSection() {
         <MvCard
           variant="mision"
           letter="M"
-          title="Misión"
+          title={t('misionVision.mission.title')}
           delay={0.1}
           icon={
             <svg viewBox="0 0 24 24" fill="none" stroke="#084a77" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="3" /><line x1="12" y1="2" x2="12" y2="5" /><line x1="12" y1="19" x2="12" y2="22" /><line x1="2" y1="12" x2="5" y2="12" /><line x1="19" y1="12" x2="22" y2="12" /></svg>
           }
-          body={<>
-            Ofrecer a nuestros clientes <strong className="font-medium text-[#084a77]">productos de calidad e inocidad</strong> con un excelente servicio, adaptándonos a los más estrictos <strong className="font-medium text-[#084a77]">estándares nacionales e internacionales</strong> para lograr su preferencia a precios competitivos.
-          </>}
+          body={t('misionVision.mission.description')}
           tagIcon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5"><polyline points="20 6 9 17 4 12" /></svg>}
-          tag="Compromiso diario"
+          tag={t('misionVision.mission.tag')}
           isDark={isDark}
         />
 
         <MvCard
           variant="vision"
           letter="V"
-          title="Visión"
+          title={t('misionVision.vision.title')}
           delay={0.25}
           icon={
             <svg viewBox="0 0 24 24" fill="none" stroke="#0099bb" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
           }
-          body={<>
-            Ser <strong className="font-medium text-[#084a77]">líderes en la industria de empaques flexibles</strong> para alimentos y sectores que lo requieran, manteniendo un alto nivel de <strong className="font-medium text-[#084a77]">calidad e inocidad</strong> en nuestros productos para cumplir y superar las expectativas de los clientes y el mercado.
-          </>}
+          body={t('misionVision.vision.description')}
           tagIcon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-2.5 h-2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>}
-          tag="Horizonte 2030"
+          tag={t('misionVision.vision.tag')}
           isDark={isDark}
         />
       </div>

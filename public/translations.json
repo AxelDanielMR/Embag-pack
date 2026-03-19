@@ -1,0 +1,879 @@
+{
+  "es": {
+    "header": {
+      "nav": {
+        "home": "Inicio",
+        "about": "Nosotros",
+        "packaging": "Empaques",
+        "contact": "Contacto"
+      }
+    },
+    "homePage": {
+      "stats": {
+        "satisfiedClients": "Clientes Satisfechos",
+        "availableProducts": "Productos Disponibles",
+        "nationalCoverage": "Cobertura a Nivel País"
+      },
+      "featureCards": {
+        "title1": "Ofreciendo el mejor Empaque Flexible de Polietileno de baja densidad certificado",
+        "description1": "En Embag Pack, priorizamos su satisfacción al ofrecer un empaque certificado, con procesos basados en el desarrollo de nuestro capital humano. Comprometido con la inocuidad, calidad y el servicio a nuestros clientes y sociedad en general.",
+        "title2": "Priorizando la Seguridad Interna y la Protección del Cliente",
+        "description2": "En Embag Pack, estamos dedicados a brindar a nuestros clientes el más alto nivel de inocuidad y calidad, a través de nuestras certificaciones y nuestro compromiso con medidas de seguridad internas, alcanzamos la seguridad y confianza de nuestros clientes al trabajar con nosotros."
+      },
+      "badges": {
+        "foodSafety": "Inocuidad",
+        "certifiedProcesses": "Procesos Certificados",
+        "rawMaterials": "Materia Prima"
+      },
+      "industries": {
+        "automotive": "Automotriz",
+        "foodBeverage": "Alimenticia",
+        "agroIndustry": "Agroindustria",
+        "automotiveTitle": "Soluciones de Empaque Especializadas para la Industria Automotriz",
+        "automotiveDesc": "En Embag Pack, comprendemos la importancia crítica del empaque en la industria automotriz. Nuestros servicios están diseñados para proteger componentes delicados y optimizar la cadena de suministro con soluciones personalizadas.",
+        "foodTitle": "Soluciones de Empaque Innovadoras para la Industria Alimenticia",
+        "foodDesc": "En Embag Pack, reconocemos la importancia de la seguridad y frescura en la industria alimenticia. Ofrecemos soluciones que preservan calidad y cumplen normativas de inocuidad alimentaria.",
+        "agroTitle": "Soluciones de Empaque Confiables para la Agroindustria",
+        "agroDesc": "Entendemos la importancia de la trazabilidad y protección en la agroindustria. Brindamos soluciones que garantizan seguridad, cumplimiento normativo y preservación del producto."
+      }
+    },
+    "newSection": {
+      "eyebrow": "Inocuidad · Confianza",
+      "title1": "Garantizamos",
+      "title2": "soluciones",
+      "title3": "seguras",
+      "title4": "para tus productos.",
+      "description": "Nos enfocamos en la inocuidad y la confianza para crear empaques que protejan tus productos y cumplan con los más altos estándares de calidad.",
+      "button": "Conoce más",
+      "images": {
+        "innovation": "Innovación",
+        "quality": "Calidad",
+        "sustainability": "Sostenibilidad",
+        "efficiency": "Eficiencia"
+      }
+    },
+    "carousel": {
+      "slide1": {
+        "title": "Procesos certificados para tu seguridad",
+        "description": "Con nuestra experiencia y dedicación, garantizamos que sus productos estén bien protegidos y cumplan con los estándares más altos."
+      },
+      "slide2": {
+        "title": "Garantizando inocuidad en tus empaques",
+        "description": "Garantizando Inocuidad con Nuestros Servicios de Empaque: Tenemos el Compromiso con la Calidad y la Seguridad en Cada Producto."
+      },
+      "slide3": {
+        "title": "Entrega rápida y confiable",
+        "description": "Con nuestra red logística nacional, garantizamos que tus empaques lleguen a tiempo y en perfecto estado."
+      },
+      "navigation": {
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "learnMore": "Saber más"
+      }
+    },
+    "ourPackages": {
+      "title": "Nuestras Soluciones",
+      "description": "Descubre soluciones de empaque diseñadas para proteger y potenciar tus productos"
+    },
+    "packageCarousel": {
+      "categories": {
+        "agroIndustry": "Empaques Agroindustria",
+        "food": "Alimentos",
+        "automotive": "Automotriz",
+        "industrial": "Empaques Industriales"
+      },
+      "descriptions": {
+        "agroIndustry": "La agroindustria requiere soluciones de empaque especializadas que abarcan desde la producción de alimentos hasta el procesamiento, almacenamiento y distribución. En Embag Pack entendemos estas necesidades con 15 años de experiencia. Garantizamos protección superior, trazabilidad completa, versatilidad en diseños y certificación de calidad.",
+        "food": "Nos hemos consolidado como expertos en empaques de grado alimenticio, respaldados por certificaciones Kosher y SQF. La seguridad e inocuidad de los alimentos es primordial, por eso cada producto está diseñado bajo estrictos controles de calidad. Ofrecemos inocuidad garantizada y trazabilidad completa.",
+        "automotive": "Desarrollamos empaques especializados que cumplen con exigentes especificaciones del sector automotriz. Nuestras soluciones protegen componentes críticos y mantienen la integridad durante la cadena de suministro. Ofrecemos protección superior contra daños y control de estática.",
+        "industrial": "Ofrecemos soluciones versátiles y especializadas para las necesidades específicas de cada sector industrial. Con 15 años de experiencia y certificaciones internacionales, garantizamos protección, eficiencia y calidad en todos nuestros empaques."
+      }
+    },
+    "aboutSection": {
+      "stats": {
+        "yearsExperience": "Años de experiencia",
+        "certifiedQuality": "Calidad certificada",
+        "nationalPresence": "Presencia nacional"
+      },
+      "values": {
+        "inocuidadCalidad": {
+          "title": "Inocuidad y Calidad",
+          "description": "Certificaciones rigurosas que garantizan la seguridad e integridad de cada empaque que fabricamos."
+        },
+        "innovacion": {
+          "title": "Innovación Constante",
+          "description": "Soluciones de empaque a la vanguardia, adaptadas a las necesidades reales de cada industria."
+        },
+        "equipo": {
+          "title": "Equipo Comprometido",
+          "description": "Personas dedicadas que respaldan cada proyecto con experiencia, precisión y vocación de servicio."
+        }
+      },
+      "leftPanel": {
+        "eyebrow": "Desde 2014",
+        "title": "Nosotros",
+        "subtitle": "Embag Pack · México",
+        "description": "Soluciones de Inocuidad en Empaques"
+      },
+      "mainContent": {
+        "paragraphStart": "Somos una empresa líder en",
+        "bold1": "soluciones de empaque certificado",
+        "paragraphMiddle": "con 11 años de experiencia transformando la industria del empaque en México. Nuestra excelencia operativa y compromiso con la calidad e inocuidad nos han posicionado como",
+        "bold2": "socios estratégicos",
+        "paragraphEnd": "de empresas líderes en diversos sectores industriales.",
+        "quote": "En creamos soluciones que protegen, agregando valor y confianza a su producto, respaldados por la experiencia y el compromiso de nuestro equipo humano."
+      }
+    },
+    "layout": {
+      "title": "Embag Pack - Empaques Nacionales",
+      "description": "Líder en soluciones de empaques con más de 300 clientes y 20,000 productos."
+    },
+    "empaques": {
+      "hero": {
+        "title": "Catálogo de Empaques",
+        "subtitle": "Explora más de 20,000 productos disponibles para tus necesidades"
+      },
+      "categories": {
+        "all": "Todos",
+        "boxes": "Cajas",
+        "bags": "Bolsas",
+        "paper": "Papel",
+        "plastic": "Plástico",
+        "accessories": "Accesorios"
+      },
+      "products": {
+        "corrugatedBoxes": {
+          "name": "Cajas Corrugadas",
+          "description": "Cajas de cartón corrugado resistentes"
+        },
+        "kraftBags": {
+          "name": "Bolsas Kraft",
+          "description": "Bolsas de papel kraft ecológicas"
+        },
+        "tissuePaper": {
+          "name": "Papel Tissue",
+          "description": "Papel tissue de alta calidad"
+        },
+        "plasticBags": {
+          "name": "Bolsas Plásticas",
+          "description": "Bolsas plásticas reutilizables"
+        },
+        "adhesiveTapes": {
+          "name": "Cintas Adhesivas",
+          "description": "Cintas de empaques profesionales"
+        },
+        "protectionFoam": {
+          "name": "Espuma de Protección",
+          "description": "Material protector para productos"
+        },
+        "printedBoxes": {
+          "name": "Cajas Impresas",
+          "description": "Cajas personalizadas con tu logotipo"
+        },
+        "bubbleWrap": {
+          "name": "Papel Burbuja",
+          "description": "Papel burbuja para protección"
+        }
+      },
+      "emptyState": {
+        "message": "No hay productos en esta categoría",
+        "heading": "¿No encontraste lo que buscas?",
+        "description": "Contáctanos para solicitar productos personalizados o consultar disponibilidad",
+        "button": "Solicitar Cotización"
+      },
+      "cta": {
+        "heading": "¿No encontraste lo que buscas?",
+        "description": "Contáctanos para solicitar productos personalizados o consultar disponibilidad",
+        "button": "Solicitar Cotización"
+      }
+    },
+    "timeline": {
+      "eyebrow": "Embag Pack · Nuestra historia",
+      "title": "Historia de la Empresa",
+      "eras": {
+        "era1": {
+          "period": "2014–2016",
+          "title": "Fundación",
+          "points": [
+            "Comenzamos como una startup con visión innovadora",
+            "Primeros clientes en el sector alimentario",
+            "Establecimiento en Jacona, Michoacán"
+          ]
+        },
+        "era2": {
+          "period": "2016–2019",
+          "title": "Expansión Nacional",
+          "points": [
+            "Alcanzamos cobertura en todo el país",
+            "Diversificación hacia otros sectores industriales",
+            "Certificaciones SQF y Kosher obtenidas"
+          ]
+        },
+        "era3": {
+          "period": "2019–2022",
+          "title": "300+ Clientes",
+          "points": [
+            "Celebramos la confianza de nuestros clientes",
+            "Ampliación de líneas de productos especializados",
+            "Inversión en tecnología de empaque avanzada"
+          ]
+        },
+        "era4": {
+          "period": "2022–Presente",
+          "title": "Líderes del Mercado",
+          "points": [
+            "Posicionados como empresa número 1 en empaques nacionales",
+            "Certificaciones ANIPAC y LAQI consolidadas",
+            "Compromiso continuo con la innovación y sustentabilidad"
+          ]
+        }
+      }
+    },
+    "nosotros": {},
+    "contact": {
+      "subjects": {
+        "sales": "Ventas y cotizaciones",
+        "support": "Soporte técnico",
+        "general": "Información general",
+        "other": "Otro"
+      },
+      "hero": {
+        "eyebrow": "Contáctanos",
+        "title": "Estamos Listos",
+        "description": "Recibimos sus consultas con gusto. Nuestro equipo está disponible para atenderle y brindarle la mejor solución en empaques."
+      },
+      "form": {
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Su nombre completo"
+        },
+        "company": {
+          "label": "Empresa",
+          "placeholder": "Nombre de su empresa"
+        },
+        "phone": {
+          "label": "Teléfono",
+          "placeholder": "(000) 000 0000"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "correo@empresa.com"
+        },
+        "subject": {
+          "label": "Asunto",
+          "placeholder": "Seleccione un tema…"
+        },
+        "message": {
+          "label": "Mensaje",
+          "placeholder": "Su mensaje aquí..."
+        },
+        "submitButton": "Enviar mensaje →",
+        "responseMessage": "Respondemos en un plazo máximo de 24 horas hábiles."
+      },
+      "success": {
+        "title": "Mensaje enviado",
+        "description": "Le responderemos en un plazo máximo de 24 horas hábiles.",
+        "button": "Enviar otro mensaje"
+      },
+      "location": {
+        "mapsButton": "Abrir en Maps",
+        "tenure": "Sirviendo a nuestros clientes desde 2005"
+      },
+      "info": {
+        "location": "Ubicación",
+        "phone": "Teléfono",
+        "email": "Correo Electrónico",
+        "formHeading": "Envíenos un mensaje",
+        "address1": "Lerdo de Tejada Poniente #150",
+        "address2": "CP 59800 — Jacona, Michoacán, México",
+        "city": "Jacona, Michoacán"
+      }
+    },
+    "misionVision": {
+      "eyebrow": "Embag Pack · Valores corporativos",
+      "title": "Misión & Visión",
+      "description": "Los principios que guían cada decisión, cada empaque y cada relación con nuestros clientes desde 2014.",
+      "mission": {
+        "title": "Misión",
+        "description": "Proporcionar soluciones innovadoras, certificadas y sustentables en empaques que protejan los productos de nuestros clientes cumpliendo con los más altos estándares de inocuidad, calidad y excelencia en servicio.",
+        "tag": "Compromiso diario"
+      },
+      "vision": {
+        "title": "Visión",
+        "description": "Ser la empresa líder en empaques en México, reconocida por nuestro compromiso con la innovación, calidad y satisfacción del cliente, para el año 2030.",
+        "tag": "Compromiso diario"
+      }
+    },
+    "ourTeam": {
+      "eyebrow": "Quiénes somos",
+      "title": "Nuestro Equipo",
+      "description": "Un equipo humano comprometido con la calidad, la innovación y el servicio. Juntos construimos soluciones de empaque que cuidan tus productos y respaldan tu negocio.",
+      "tags": [
+        "Certificados",
+        "Innovación",
+        "Calidad Total"
+      ],
+      "activeTeam": {
+        "title": "Equipo activo",
+        "subtitle": "Disponible para tu proyecto"
+      },
+      "stats": {
+        "experience": "Años de experiencia",
+        "projects": "Proyectos realizados",
+        "clients": "Clientes satisfechos"
+      }
+    },
+    "valores": {
+      "eyebrow": "Embag Pack · ADN corporativo",
+      "title": "Nuestros Valores",
+      "subtitle": "Compromiso con la Excelencia — cada producto que desarrollamos refleja nuestra dedicación.",
+      "values": {
+        "honesty": {
+          "title": "Honestidad",
+          "description": "Transparencia total en cada acuerdo"
+        },
+        "responsibility": {
+          "title": "Responsabilidad",
+          "description": "Cumplimos lo que prometemos, siempre"
+        },
+        "empathy": {
+          "title": "Empatía",
+          "description": "Entendemos las necesidades de nuestros socios"
+        },
+        "respect": {
+          "title": "Respeto",
+          "description": "Trato digno en cada interacción"
+        },
+        "humility": {
+          "title": "Humildad",
+          "description": "Aprendemos de cada experiencia"
+        },
+        "confidentiality": {
+          "title": "Confidencialidad",
+          "description": "Información protegida con total discreción"
+        },
+        "quality": {
+          "title": "Calidad",
+          "description": "Estándares certificados en cada empaque"
+        },
+        "foodSafety": {
+          "title": "Inocuidad",
+          "description": "Seguridad alimentaria sin compromisos"
+        },
+        "continuousImprovement": {
+          "title": "Mejora Continua",
+          "description": "Innovación como práctica diaria"
+        },
+        "communication": {
+          "title": "Comunicación",
+          "description": "Claridad y oportunidad en cada mensaje"
+        },
+        "customerService": {
+          "title": "Servicio al Cliente",
+          "description": "Atención excepcional, siempre disponible"
+        },
+        "punctuality": {
+          "title": "Puntualidad",
+          "description": "Compromisos de entrega que se respetan"
+        }
+      }
+    },
+    "certificationsSection": {
+      "title": "Nuestras certificaciones",
+      "description": "Contamos con avales internacionales que respaldan nuestro compromiso con la calidad, la inocuidad y la sustentabilidad.",
+      "visitSite": "Visitar sitio"
+    },
+    "certifications": {
+      "sqf": {
+        "title": "SQF",
+        "description": "Safe Quality Food — estándar internacional de inocuidad y calidad alimentaria reconocido por GFSI."
+      },
+      "kosher": {
+        "title": "Kosher",
+        "description": "Certificación que garantiza que nuestros productos cumplen con las leyes alimentarias judías."
+      },
+      "laqi": {
+        "title": "LAQI",
+        "description": "Latin American Quality Institute — reconocimiento a la excelencia en calidad empresarial."
+      },
+      "anipac": {
+        "title": "ANIPAC",
+        "description": "Asociación Nacional de Industrias del Plástico — compromiso con la sustentabilidad y buenas prácticas."
+      }
+    },
+    "featureCard": {
+      "counters": {
+        "satisfiedClients": "Clientes Satisfechos",
+        "tonnesProduced": "Toneladas Producidas"
+      }
+    },
+    "footer": {
+      "byline": "Desde 2014",
+      "menu": "Menú",
+      "contact": "Contacto",
+      "address": {
+        "street": "Lerdo de Tejada Poniente #150",
+        "city": "Jacona, Michoacán",
+        "postalCode": "CP 59800, México"
+      },
+      "phone": "Teléfono",
+      "cta": {
+        "heading": "¿Trabajemos juntos?",
+        "title": "¿Interesado en trabajar con nosotros?"
+      },
+      "copyright": "Todos los derechos reservados"
+    }
+  },
+  "en": {
+    "header": {
+      "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "packaging": "Packaging",
+        "contact": "Contact"
+      }
+    },
+    "homePage": {
+      "stats": {
+        "satisfiedClients": "Satisfied Clients",
+        "availableProducts": "Available Products",
+        "nationalCoverage": "National Coverage"
+      },
+      "featureCards": {
+        "title1": "Offering the best low-density polyethylene flexible packaging certified",
+        "description1": "At Embag Pack, we prioritize your satisfaction by offering certified packaging, with processes based on the development of our human capital. Committed to food safety, quality, and service to our customers and society at large.",
+        "title2": "Prioritizing Internal Safety and Customer Protection",
+        "description2": "At Embag Pack, we are dedicated to providing our customers with the highest level of food safety and quality, through our certifications and commitment to internal safety measures, we achieve the security and trust of our customers when working with us."
+      },
+      "badges": {
+        "foodSafety": "Food Safety",
+        "certifiedProcesses": "Certified Processes",
+        "rawMaterials": "Raw Materials"
+      },
+      "industries": {
+        "automotive": "Automotive",
+        "foodBeverage": "Food & Beverage",
+        "agroIndustry": "Agro-industry",
+        "automotiveTitle": "Specialized Packaging Solutions for the Automotive Industry",
+        "automotiveDesc": "At Embag Pack, we understand the critical importance of packaging in the automotive industry. Our services are designed to protect delicate components and optimize the supply chain with customized solutions.",
+        "foodTitle": "Innovative Packaging Solutions for the Food Industry",
+        "foodDesc": "At Embag Pack, we recognize the importance of safety and freshness in the food industry. We offer solutions that preserve quality and comply with food safety regulations.",
+        "agroTitle": "Reliable Packaging Solutions for Agro-industry",
+        "agroDesc": "We understand the importance of traceability and protection in agro-industry. We provide solutions that guarantee safety, regulatory compliance, and product preservation."
+      }
+    },
+    "newSection": {
+      "eyebrow": "Food Safety · Trust",
+      "title1": "We Guarantee",
+      "title2": "Safe",
+      "title3": "Solutions",
+      "title4": "for Your Products.",
+      "description": "We focus on food safety and trust to create packaging that protects your products and meets the highest quality standards.",
+      "button": "Learn more",
+      "images": {
+        "innovation": "Innovation",
+        "quality": "Quality",
+        "sustainability": "Sustainability",
+        "efficiency": "Efficiency"
+      }
+    },
+    "carousel": {
+      "slide1": {
+        "title": "Certified processes for your safety",
+        "description": "With our experience and dedication, we guarantee that your products are well protected and meet the highest standards."
+      },
+      "slide2": {
+        "title": "Guaranteeing food safety in your packaging",
+        "description": "Guaranteeing Food Safety with Our Packaging Services: We Commit to Quality and Safety in Every Product."
+      },
+      "slide3": {
+        "title": "Fast and reliable delivery",
+        "description": "With our national logistics network, we guarantee that your packaging arrives on time and in perfect condition."
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next",
+        "learnMore": "Learn more"
+      }
+    },
+    "ourPackages": {
+      "title": "Our Solutions",
+      "description": "Discover packaging solutions designed to protect and enhance your products"
+    },
+    "packageCarousel": {
+      "categories": {
+        "agroIndustry": "Agro-industry Packaging",
+        "food": "Food",
+        "automotive": "Automotive",
+        "industrial": "Industrial Packaging"
+      },
+      "descriptions": {
+        "agroIndustry": "Agro-industry requires specialized packaging solutions ranging from food production to processing, storage, and distribution. At Embag Pack, we understand these needs with 15 years of experience. We guarantee superior protection, complete traceability, design versatility, and quality certification.",
+        "food": "We have established ourselves as experts in food-grade packaging, backed by Kosher and SQF certifications. Food safety and hygiene are paramount, so every product is designed under strict quality controls. We offer guaranteed food safety and complete traceability.",
+        "automotive": "We develop specialized packaging that meets demanding automotive sector specifications. Our solutions protect critical components and maintain integrity throughout the supply chain. We offer superior protection against damage and static control.",
+        "industrial": "We offer versatile and specialized solutions for the specific needs of each industrial sector. With 15 years of experience and international certifications, we guarantee protection, efficiency, and quality in all our packaging."
+      }
+    },
+    "aboutSection": {
+      "stats": {
+        "yearsExperience": "Years of experience",
+        "certifiedQuality": "Certified quality",
+        "nationalPresence": "National presence"
+      },
+      "values": {
+        "inocuidadCalidad": {
+          "title": "Food Safety and Quality",
+          "description": "Rigorous certifications that guarantee the safety and integrity of each package we manufacture."
+        },
+        "innovacion": {
+          "title": "Constant Innovation",
+          "description": "Cutting-edge packaging solutions, adapted to the real needs of each industry."
+        },
+        "equipo": {
+          "title": "Committed Team",
+          "description": "People dedicated to supporting each project with experience, precision and service vocation."
+        }
+      },
+      "leftPanel": {
+        "eyebrow": "Since 2014",
+        "title": "About Us",
+        "subtitle": "Embag Pack · Mexico",
+        "description": "Food Safety Solutions in Packaging"
+      },
+      "mainContent": {
+        "paragraphStart": "We are a leading company in",
+        "bold1": "certified packaging solutions",
+        "paragraphMiddle": "with 11 years of experience transforming the packaging industry in Mexico. Our operational excellence and commitment to quality and food safety have positioned us as",
+        "bold2": "strategic partners",
+        "paragraphEnd": "of leading companies in various industrial sectors.",
+        "quote": "We create solutions that protect, adding value and confidence to your product, backed by the experience and commitment of our human team."
+      }
+    },
+    "layout": {
+      "title": "Embag Pack - National Packaging Solutions",
+      "description": "Leader in packaging solutions with over 300 clients and 20,000 products."
+    },
+    "empaques": {
+      "hero": {
+        "title": "Packaging Catalog",
+        "subtitle": "Explore over 20,000 products available for your needs"
+      },
+      "categories": {
+        "all": "All",
+        "boxes": "Boxes",
+        "bags": "Bags",
+        "paper": "Paper",
+        "plastic": "Plastic",
+        "accessories": "Accessories"
+      },
+      "products": {
+        "corrugatedBoxes": {
+          "name": "Corrugated Boxes",
+          "description": "Resistant corrugated cardboard boxes"
+        },
+        "kraftBags": {
+          "name": "Kraft Bags",
+          "description": "Ecological kraft paper bags"
+        },
+        "tissuePaper": {
+          "name": "Tissue Paper",
+          "description": "High quality tissue paper"
+        },
+        "plasticBags": {
+          "name": "Plastic Bags",
+          "description": "Reusable plastic bags"
+        },
+        "adhesiveTapes": {
+          "name": "Adhesive Tapes",
+          "description": "Professional packaging tapes"
+        },
+        "protectionFoam": {
+          "name": "Protection Foam",
+          "description": "Protective material for products"
+        },
+        "printedBoxes": {
+          "name": "Printed Boxes",
+          "description": "Custom boxes with your logo"
+        },
+        "bubbleWrap": {
+          "name": "Bubble Wrap",
+          "description": "Bubble wrap for protection"
+        }
+      },
+      "emptyState": {
+        "message": "No products in this category",
+        "heading": "Didn't find what you're looking for?",
+        "description": "Contact us to request custom products or check availability",
+        "button": "Request Quote"
+      },
+      "cta": {
+        "heading": "Didn't find what you're looking for?",
+        "description": "Contact us to request custom products or check availability",
+        "button": "Request Quote"
+      }
+    },
+    "nosotros": {
+      "timeline": {
+        "era1": {
+          "title": "Foundation",
+          "description": "We started as a startup with innovative vision"
+        },
+        "era2": {
+          "title": "National Expansion",
+          "description": "We achieved coverage throughout the country"
+        },
+        "era3": {
+          "title": "300+ Clients",
+          "description": "We celebrate the trust of our clients"
+        },
+        "era4": {
+          "title": "Market Leaders",
+          "description": "Positioned as the leading packaging company"
+        }
+      }
+    },
+    "contact": {
+      "subjects": {
+        "sales": "Sales and quotes",
+        "support": "Technical support",
+        "general": "General information",
+        "other": "Other"
+      },
+      "hero": {
+        "eyebrow": "Contact Us",
+        "title": "We are Ready",
+        "description": "We receive your inquiries with pleasure. Our team is available to assist you and provide the best packaging solution."
+      },
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your full name"
+        },
+        "company": {
+          "label": "Company",
+          "placeholder": "Company name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "(000) 000 0000"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "email@company.com"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Select a topic…"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Your message here..."
+        },
+        "submitButton": "Send message →",
+        "responseMessage": "We respond within a maximum of 24 business hours."
+      },
+      "success": {
+        "title": "Message Sent",
+        "description": "We will respond within a maximum of 24 business hours.",
+        "button": "Send another message"
+      },
+      "info": {
+        "location": "Location",
+        "phone": "Phone",
+        "email": "Email",
+        "formHeading": "Send us a message",
+        "address1": "Lerdo de Tejada Poniente #150",
+        "address2": "CP 59800 — Jacona, Michoacán, Mexico",
+        "city": "Jacona, Michoacán"
+      },
+      "location": {
+        "mapsButton": "Open in Maps",
+        "tenure": "Serving our clients since 2005"
+      }
+    },
+    "misionVision": {
+      "eyebrow": "Embag Pack · Corporate Values",
+      "title": "Mission & Vision",
+      "description": "The principles that guide every decision, every package and every relationship with our clients since 2014.",
+      "mission": {
+        "title": "Mission",
+        "description": "To provide innovative, certified, and sustainable packaging solutions that protect our clients' products while meeting the highest standards of food safety, quality, and service excellence.",
+        "tag": "Daily commitment"
+      },
+      "vision": {
+        "title": "Vision",
+        "description": "To be the leading packaging company in Mexico, recognized for our commitment to innovation, quality, and customer satisfaction, set by the year 2030.",
+        "tag": "Leading commitment"
+      }
+    },
+    "ourTeam": {
+      "eyebrow": "Who We Are",
+      "title": "Our Team",
+      "description": "A human team committed to quality, innovation and service. Together we build packaging solutions that care for your products and support your business.",
+      "tags": [
+        "Certified",
+        "Innovation",
+        "Total Quality"
+      ],
+      "activeTeam": {
+        "title": "Active Team",
+        "subtitle": "Available for your project"
+      },
+      "stats": {
+        "experience": "Years of experience",
+        "projects": "Projects completed",
+        "clients": "Satisfied Clients"
+      }
+    },
+    "valores": {
+      "eyebrow": "Embag Pack · Corporate DNA",
+      "title": "Our Values",
+      "subtitle": "Commitment to Excellence — every product we develop reflects our dedication.",
+      "values": {
+        "honesty": {
+          "title": "Honesty",
+          "description": "Total transparency in every agreement"
+        },
+        "responsibility": {
+          "title": "Responsibility",
+          "description": "We fulfill what we promise, always"
+        },
+        "empathy": {
+          "title": "Empathy",
+          "description": "We understand the needs of our partners"
+        },
+        "respect": {
+          "title": "Respect",
+          "description": "Dignified treatment in every interaction"
+        },
+        "humility": {
+          "title": "Humility",
+          "description": "We learn from every experience"
+        },
+        "confidentiality": {
+          "title": "Confidentiality",
+          "description": "Information protected with total discretion"
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "Certified standards in every package"
+        },
+        "foodSafety": {
+          "title": "Food Safety",
+          "description": "Food safety without compromise"
+        },
+        "continuousImprovement": {
+          "title": "Continuous Improvement",
+          "description": "Innovation as daily practice"
+        },
+        "communication": {
+          "title": "Communication",
+          "description": "Clarity and timeliness in every message"
+        },
+        "customerService": {
+          "title": "Customer Service",
+          "description": "Exceptional service, always available"
+        },
+        "punctuality": {
+          "title": "Punctuality",
+          "description": "Delivery commitments that are respected"
+        }
+      }
+    },
+    "timeline": {
+      "eyebrow": "Embag Pack · Our History",
+      "title": "Company History",
+      "eras": {
+        "era1": {
+          "title": "Foundations",
+          "period": "2007-2013",
+          "points": [
+            "Foundation of Embag Pack with focus on basic packaging",
+            "Investment in first specialized production line",
+            "Development of first commercial relationships in the food industry",
+            "Establishment of fundamental quality standards"
+          ]
+        },
+        "era2": {
+          "title": "Start of Productive Operations",
+          "period": "2014-2017",
+          "points": [
+            "Expansion of productive capacity",
+            "Start of operations in automotive sector",
+            "Development of food-grade product line",
+            "Implementation of quality control laboratory"
+          ]
+        },
+        "era3": {
+          "title": "Consolidation and Certifications",
+          "period": "2018-2022",
+          "points": [
+            "Obtaining Kosher Certification",
+            "Integration to ANIPAC",
+            "Technological modernization of production plant",
+            "Expansion of specialized product portfolio",
+            "Development of customized solutions for key clients",
+            "SQF Certification"
+          ]
+        },
+        "era4": {
+          "title": "Leadership and Innovation",
+          "period": "2023-Present",
+          "points": [
+            "Consolidation as leader in certified packaging",
+            "Implementation of latest generation technologies",
+            "Development of sustainable solutions",
+            "Strengthening of presence in multiple sectors",
+            "Expansion of productive capabilities",
+            "Continuous investment in human talent development"
+          ]
+        }
+      }
+    },
+    "certificationsSection": {
+      "title": "Our Certifications",
+      "description": "We have international standards that support our commitment to quality, food safety, and sustainability.",
+      "visitSite": "Visit website"
+    },
+    "certifications": {
+      "sqf": {
+        "title": "SQF",
+        "description": "Safe Quality Food — international standard for food safety and quality recognized by GFSI."
+      },
+      "kosher": {
+        "title": "Kosher",
+        "description": "Certification that guarantees that our products comply with Jewish dietary laws."
+      },
+      "laqi": {
+        "title": "LAQI",
+        "description": "Latin American Quality Institute — recognition of business quality excellence."
+      },
+      "anipac": {
+        "title": "ANIPAC",
+        "description": "National Association of Plastics Industries — commitment to sustainability and best practices."
+      }
+    },
+    "featureCard": {
+      "counters": {
+        "satisfiedClients": "Satisfied Clients",
+        "tonnesProduced": "Tonnes Produced"
+      }
+    },
+    "footer": {
+      "byline": "Since 2014",
+      "menu": "Menu",
+      "contact": "Contact",
+      "address": {
+        "street": "Lerdo de Tejada Poniente #150",
+        "city": "Jacona, Michoacán",
+        "postalCode": "CP 59800, Mexico"
+      },
+      "phone": "Phone",
+      "cta": {
+        "heading": "Let's work together?",
+        "title": "Interested in working with us?"
+      },
+      "copyright": "All rights reserved"
+    }
+  }
+}

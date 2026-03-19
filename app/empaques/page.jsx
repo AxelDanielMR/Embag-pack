@@ -2,34 +2,39 @@
 
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { useState } from 'react';
+
+const getCategories = (t) => [
+  t('empaques.categories.all'),
+  t('empaques.categories.boxes'),
+  t('empaques.categories.bags'),
+  t('empaques.categories.paper'),
+  t('empaques.categories.plastic'),
+  t('empaques.categories.accessories'),
+];
+
+const getProducts = (t) => [
+  { id: 1, name: t('empaques.products.corrugatedBoxes.name'), category: t('empaques.categories.boxes'), description: t('empaques.products.corrugatedBoxes.description') },
+  { id: 2, name: t('empaques.products.kraftBags.name'), category: t('empaques.categories.bags'), description: t('empaques.products.kraftBags.description') },
+  { id: 3, name: t('empaques.products.tissuePaper.name'), category: t('empaques.categories.paper'), description: t('empaques.products.tissuePaper.description') },
+  { id: 4, name: t('empaques.products.plasticBags.name'), category: t('empaques.categories.plastic'), description: t('empaques.products.plasticBags.description') },
+  { id: 5, name: t('empaques.products.adhesiveTapes.name'), category: t('empaques.categories.accessories'), description: t('empaques.products.adhesiveTapes.description') },
+  { id: 6, name: t('empaques.products.protectionFoam.name'), category: t('empaques.categories.accessories'), description: t('empaques.products.protectionFoam.description') },
+  { id: 7, name: t('empaques.products.printedBoxes.name'), category: t('empaques.categories.boxes'), description: t('empaques.products.printedBoxes.description') },
+  { id: 8, name: t('empaques.products.bubbleWrap.name'), category: t('empaques.categories.paper'), description: t('empaques.products.bubbleWrap.description') },
+];
 
 export default function Empaques() {
   const { isDark } = useTheme();
-  const [filter, setFilter] = useState('todos');
+  const { t } = useLanguage();
+  const [filter, setFilter] = useState(t('empaques.categories.all'));
 
-  const categories = [
-    'todos',
-    'cajas',
-    'bolsas',
-    'papel',
-    'plástico',
-    'accesorios',
-  ];
-
-  const products = [
-    { id: 1, name: 'Cajas Corrugadas', category: 'cajas', description: 'Cajas de cartón corrugado resistentes' },
-    { id: 2, name: 'Bolsas Kraft', category: 'bolsas', description: 'Bolsas de papel kraft ecológicas' },
-    { id: 3, name: 'Papel Tissue', category: 'papel', description: 'Papel tissue de alta calidad' },
-    { id: 4, name: 'Bolsas Plásticas', category: 'plástico', description: 'Bolsas plásticas reutilizables' },
-    { id: 5, name: 'Cintas Adhesivas', category: 'accesorios', description: 'Cintas de empaques profesionales' },
-    { id: 6, name: 'Espuma de Protección', category: 'accesorios', description: 'Material protector para productos' },
-    { id: 7, name: 'Cajas Impresas', category: 'cajas', description: 'Cajas personalizadas con tu logotipo' },
-    { id: 8, name: 'Papel Burbuja', category: 'papel', description: 'Papel burbuja para protección' },
-  ];
+  const categories = getCategories(t);
+  const products = getProducts(t);
 
   const filteredProducts =
-    filter === 'todos' ? products : products.filter((p) => p.category === filter);
+    filter === t('empaques.categories.all') ? products : products.filter((p) => p.category === filter);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -61,10 +66,10 @@ export default function Empaques() {
           className="text-center"
         >
           <h1 className="heading-section mb-4 text-sky-600 dark:text-sky-400">
-            Catálogo de Empaques
+            {t('empaques.hero.title')}
           </h1>
           <p className="subheading mb-8">
-            Explora más de 20,000 productos disponibles para tus necesidades
+            {t('empaques.hero.subtitle')}
           </p>
         </motion.div>
       </section>
@@ -150,9 +155,9 @@ export default function Empaques() {
       {/* Call to Action */}
       <section className={`${isDark ? 'bg-slate-800' : 'bg-gray-50'} section transition-colors duration-300`}>
         <div className="container-custom text-center">
-          <h2 className={`heading-section mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>¿No encontraste lo que buscas?</h2>
+          <h2 className={`heading-section mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>{t('empaques.cta.heading')}</h2>
           <p className="subheading mb-8">
-            Contáctanos para solicitar productos personalizados o consultar disponibilidad
+            {t('empaques.cta.description')}
           </p>
           <motion.a
             whileHover={{ scale: 1.05 }}
@@ -160,7 +165,7 @@ export default function Empaques() {
             href="/contacto"
             className="inline-block btn-primary-dark"
           >
-            Solicitar Cotización
+            {t('empaques.cta.button')}
           </motion.a>
         </div>
       </section>

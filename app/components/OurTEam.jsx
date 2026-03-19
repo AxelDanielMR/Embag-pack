@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function OurTeam() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
   
   const bgColor = isDark ? '#061828' : '#061828';
   const textColor = isDark ? '#ffffff' : '#ffffff';
@@ -85,7 +87,7 @@ export default function OurTeam() {
               color: accentColor,
               fontFamily: 'DM Sans, sans-serif',
             }}>
-              Quiénes somos
+              {t('ourTeam.eyebrow')}
             </span>
           </div>
 
@@ -101,12 +103,12 @@ export default function OurTeam() {
               letterSpacing: '-0.02em',
             }}
           >
-            Nuestro<br />
+            {t('ourTeam.title').split(' ')[0]}<br />
             <span style={{
               WebkitTextStroke: '2px rgba(56,189,248,0.7)',
               color: 'transparent',
             }}>
-              Equipo
+              {t('ourTeam.title').split(' ')[1]}
             </span>
           </h2>
 
@@ -119,15 +121,15 @@ export default function OurTeam() {
             marginBottom: '2.5rem',
             fontFamily: 'DM Sans, sans-serif',
           }}>
-            Un equipo humano comprometido con la calidad, la innovación y el servicio. Juntos construimos soluciones de empaque que cuidan tus productos y respaldan tu negocio.
+            {t('ourTeam.description')}
           </p>
 
           {/* Stats row */}
           <div className="flex gap-8 mb-10">
             {[
-              { value: '+15', label: 'Años de experiencia' },
-              { value: '200+', label: 'Proyectos realizados' },
-              { value: '98%', label: 'Clientes satisfechos' },
+              { value: '+15', label: t('ourTeam.stats.experience') },
+              { value: '200+', label: t('ourTeam.stats.projects') },
+              { value: '98%', label: t('ourTeam.stats.clients') },
             ].map((stat) => (
               <div key={stat.label}>
                 <div style={{
@@ -156,7 +158,7 @@ export default function OurTeam() {
 
           {/* Tags */}
           <div className="flex gap-2 flex-wrap">
-            {['Certificados', 'Innovación', 'Calidad Total'].map((tag) => (
+            {(Array.isArray(t('ourTeam.tags')) ? t('ourTeam.tags') : []).map((tag) => (
               <span key={tag} style={{
                 padding: '6px 16px',
                 borderRadius: '2px',
@@ -239,10 +241,10 @@ export default function OurTeam() {
               }} />
               <div>
                 <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.85rem', fontFamily: 'Syne, sans-serif' }}>
-                  Equipo activo
+                  {t('ourTeam.activeTeam.title')}
                 </div>
                 <div style={{ color: 'rgba(186,220,244,0.6)', fontSize: '0.72rem', fontFamily: 'DM Sans, sans-serif' }}>
-                  Disponible para tu proyecto
+                  {t('ourTeam.activeTeam.subtitle')}
                 </div>
               </div>
             </div>

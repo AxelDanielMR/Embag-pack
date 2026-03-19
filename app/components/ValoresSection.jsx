@@ -3,21 +3,22 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 // ─── Data ─────────────────────────────────────────────────────
-const VALUES = [
-  { label: 'Honestidad',         desc: 'Transparencia total en cada acuerdo',                  color: '#084a77' },
-  { label: 'Responsabilidad',    desc: 'Cumplimos lo que prometemos, siempre',                  color: '#084a77' },
-  { label: 'Empatía',            desc: 'Entendemos las necesidades de nuestros socios',          color: '#0e6fa8' },
-  { label: 'Respeto',            desc: 'Trato digno en cada interacción',                       color: '#0e6fa8' },
-  { label: 'Humildad',           desc: 'Aprendemos de cada experiencia',                        color: '#1288c4' },
-  { label: 'Confidencialidad',   desc: 'Información protegida con total discreción',            color: '#1288c4' },
-  { label: 'Calidad',            desc: 'Estándares certificados en cada empaque',               color: '#009fcc' },
-  { label: 'Inocuidad',          desc: 'Seguridad alimentaria sin compromisos',                 color: '#009fcc' },
-  { label: 'Mejora Continua',    desc: 'Innovación como práctica diaria',                       color: '#00b8d4' },
-  { label: 'Comunicación',       desc: 'Claridad y oportunidad en cada mensaje',                color: '#00b8d4' },
-  { label: 'Servicio al Cliente',desc: 'Atención excepcional, siempre disponible',              color: '#00d4ff' },
-  { label: 'Puntualidad',        desc: 'Compromisos de entrega que se respetan',                color: '#00d4ff' },
+const getVALUES = (t) => [
+  { label: t('valores.values.honesty.title'),         desc: t('valores.values.honesty.description'),                  color: '#084a77' },
+  { label: t('valores.values.responsibility.title'),    desc: t('valores.values.responsibility.description'),                  color: '#084a77' },
+  { label: t('valores.values.empathy.title'),            desc: t('valores.values.empathy.description'),          color: '#0e6fa8' },
+  { label: t('valores.values.respect.title'),            desc: t('valores.values.respect.description'),                       color: '#0e6fa8' },
+  { label: t('valores.values.humility.title'),           desc: t('valores.values.humility.description'),                        color: '#1288c4' },
+  { label: t('valores.values.confidentiality.title'),   desc: t('valores.values.confidentiality.description'),            color: '#1288c4' },
+  { label: t('valores.values.quality.title'),            desc: t('valores.values.quality.description'),               color: '#009fcc' },
+  { label: t('valores.values.foodSafety.title'),          desc: t('valores.values.foodSafety.description'),                 color: '#009fcc' },
+  { label: t('valores.values.continuousImprovement.title'),    desc: t('valores.values.continuousImprovement.description'),                       color: '#00b8d4' },
+  { label: t('valores.values.communication.title'),       desc: t('valores.values.communication.description'),                color: '#00b8d4' },
+  { label: t('valores.values.customerService.title'),desc: t('valores.values.customerService.description'),              color: '#00d4ff' },
+  { label: t('valores.values.punctuality.title'),        desc: t('valores.values.punctuality.description'),                color: '#00d4ff' },
 ];
 
 // ─── Animated counter hook ────────────────────────────────────
@@ -65,7 +66,11 @@ function ValueRow({ label, desc, color, index, isDark }) {
         <div className="flex items-center gap-2">
           {/* Dot */}
           <span
-            className="w-[7px] h-[7px] rounded-full flex-shrinkuppercase transition-colors duration-300"
+            className="flex-shrink-0 w-[7px] h-[7px] rounded-full transition-colors duration-300"
+            style={{ background: color }}
+          />
+          <span
+            className="whitespace-nowrap text-[14px] font-semibold transition-colors duration-300"
             style={{ fontFamily: 'Syne, sans-serif', color: textColor }}
           >
             {label}
@@ -129,6 +134,8 @@ function ValueRow({ label, desc, color, index, isDark }) {
 // ─── Section ──────────────────────────────────────────────────
 export default function ValoresSection() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+  const VALUES = getVALUES(t);
   
   const bgColor = isDark ? '#0a1620' : '#f5f2ed';
   const textColor = isDark ? 'rgba(210,235,252,0.9)' : '#0a1a2a';
@@ -147,15 +154,15 @@ export default function ValoresSection() {
         <div>
           <div className="flex items-center gap-2.5 mb-3">
             <span className={`w-6 h-[1.5px] ${isDark ? 'bg-[#38bdf8]' : 'bg-[#084a77]'}`} />
-            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: isDark ? '#38bdf8' : '#084a77' }}>Embag Pack · ADN corporativo</span>
+            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: isDark ? '#38bdf8' : '#084a77' }}>{t('valores.eyebrow')}</span>
           </div>
           <h2 className="text-[44px] font-extrabold leading-none tracking-tight transition-colors duration-300" style={{ fontFamily: 'Syne, sans-serif', color: textColor }}>
-            Nuestros <span className={isDark ? 'text-[#38bdf8]' : 'text-[#084a77]'}>Valores</span>
+            {t('valores.title').split(' ')[0]} <span className={isDark ? 'text-[#38bdf8]' : 'text-[#084a77]'}>{t('valores.title').split(' ').slice(1).join(' ')}</span>
           </h2>
         </div>
 
         <p className="max-w-[280px] text-[13px] font-light leading-[1.75] md:text-right transition-colors duration-300" style={{ fontFamily: 'DM Sans, sans-serif', color: subtextColor }}>
-          Compromiso con la Excelencia — cada producto que desarrollamos refleja nuestra dedicación.
+          {t('valores.subtitle')}
         </p>
       </motion.header>
 

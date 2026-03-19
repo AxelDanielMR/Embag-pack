@@ -3,64 +3,41 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 // ─── Data ─────────────────────────────────────────────────────
-const ERAS = [
+const getEras = (t) => [
   {
-    years: '2007 – 2013',
-    name: 'Cimientos',
+    years: t('timeline.eras.era1.period'),
+    name: t('timeline.eras.era1.title'),
     accent: '#4a9eff',
     tagBg: 'rgba(74,158,255,.12)',
     tagColor: '#4a9eff',
-    items: [
-      'Fundación de Embag Pack con enfoque en empaques básicos',
-      'Inversión en primera línea de producción especializada',
-      'Desarrollo de primeras relaciones comerciales en la industria alimenticia',
-      'Establecimiento de estándares de calidad fundamentales',
-    ],
+    items: t('timeline.eras.era1.points'),
   },
   {
-    years: '2014 – 2017',
-    name: 'Inicio de Operaciones Productivas',
+    years: t('timeline.eras.era2.period'),
+    name: t('timeline.eras.era2.title'),
     accent: '#00b8d4',
     tagBg: 'rgba(0,184,212,.12)',
     tagColor: '#00b8d4',
-    items: [
-      'Ampliación de capacidad productiva',
-      'Inicio de operaciones en el sector automotriz',
-      'Desarrollo de línea de productos de grado alimenticio',
-      'Implementación de laboratorio de control de calidad',
-    ],
+    items: t('timeline.eras.era2.points'),
   },
   {
-    years: '2018 – 2022',
-    name: 'Consolidación y Certificaciones',
+    years: t('timeline.eras.era3.period'),
+    name: t('timeline.eras.era3.title'),
     accent: '#00d4b0',
     tagBg: 'rgba(0,212,176,.12)',
     tagColor: '#00d4b0',
-    items: [
-      'Obtención de Certificación Kosher',
-      'Integración a ANIPAC',
-      'Modernización tecnológica de planta productiva',
-      'Expansión de portafolio de productos especializados',
-      'Desarrollo de soluciones personalizadas para clientes clave',
-      'Certificación SQF',
-    ],
+    items: t('timeline.eras.era3.points'),
   },
   {
-    years: '2023 – Presente',
-    name: 'Liderazgo e Innovación',
+    years: t('timeline.eras.era4.period'),
+    name: t('timeline.eras.era4.title'),
     accent: '#66ccff',
     tagBg: 'rgba(102,204,255,.12)',
     tagColor: '#66ccff',
-    items: [
-      'Consolidación como líder en empaques certificados',
-      'Implementación de tecnologías de última generación',
-      'Desarrollo de soluciones sostenibles',
-      'Fortalecimiento de presencia en múltiples sectores',
-      'Expansión de capacidades productivas',
-      'Inversión continua en desarrollo de talento humano',
-    ],
+    items: t('timeline.eras.era4.points'),
   },
 ];
 
@@ -96,7 +73,7 @@ function EraCard({ era, index, isDark }) {
           <h3 className="text-[16px] font-bold leading-snug mb-4 transition-colors duration-300" style={{ fontFamily: 'Syne, sans-serif', color: textColor }}>{era.name}</h3>
 
           <ul className="flex flex-col gap-2 list-none">
-            {era.items.map((item) => (
+            {Array.isArray(era.items) && era.items.map((item) => (
               <li key={item} className="relative pl-4 text-[12.5px] font-light leading-relaxed transition-colors duration-300" style={{ color: bodyColor, fontFamily: 'DM Sans, sans-serif' }}>
                 <span className="absolute left-0 top-[8px] w-1 h-1 rounded-full opacity-70" style={{ background: era.accent }} />
                 {item}
@@ -116,6 +93,8 @@ function EraCard({ era, index, isDark }) {
 // ─── Timeline Section ─────────────────────────────────────────
 export default function TimelineSection() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+  const eras = getEras(t);
   const bgColor = isDark ? '#071420' : '#eaf6ff';
   const spineColor = isDark ? 'rgba(56,189,248,0.08)' : 'rgba(7,40,64,0.04)';
   const fadeLeft = isDark ? 'linear-gradient(to right, #071420, transparent)' : 'linear-gradient(to right, #eaf6ff, transparent)';
@@ -162,10 +141,10 @@ export default function TimelineSection() {
         <div>
           <div className="flex items-center gap-2.5 mb-3">
             <span className="w-6 h-[1.5px]" style={{ background: '#66ccff' }} />
-            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase transition-colors duration-300" style={{ color: '#66ccff', fontFamily: 'DM Sans, sans-serif' }}>Embag Pack · Nuestra historia</span>
+            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase transition-colors duration-300" style={{ color: '#66ccff', fontFamily: 'DM Sans, sans-serif' }}>{t('timeline.eyebrow')}</span>
           </div>
           <h2 className="text-[44px] font-extrabold leading-none tracking-tight transition-colors duration-300" style={{ fontFamily: 'Syne, sans-serif', color: textColor }}>
-            Historia de la <span style={{ color: '#66ccff' }}>Empresa</span>
+            {t('timeline.title').split(' ').slice(0, -1).join(' ')} <span style={{ color: '#66ccff' }}>{t('timeline.title').split(' ').slice(-1)[0]}</span>
           </h2>
         </div>
       </motion.div>
@@ -174,7 +153,7 @@ export default function TimelineSection() {
         <div className="absolute top-9 left-0 right-0 h-px pointer-events-none transition-colors duration-300" style={{ background: spineColor }} />
 
         <div className="flex items-start w-max pt-9 pb-2">
-          {ERAS.map((era, i) => (
+          {eras.map((era, i) => (
             <EraCard key={era.years} era={era} index={i} isDark={isDark} />
           ))}
         </div>

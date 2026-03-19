@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import PackageCarousel from './PackageCarousel';
 
 export default function OurPackages() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const packages = [
@@ -44,9 +46,9 @@ export default function OurPackages() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="flex flex-col gap-12">
           <div className="flex flex-col gap-4">
-            <h3 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide">Nuestras Soluciones</h3>
+            <h3 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide">{t('ourPackages.title')}</h3>
             <p className="text-white/80 text-sm sm:text-base lg:text-lg max-w-3xl leading-relaxed">
-              Descubre soluciones de empaque diseñadas para proteger y potenciar tus productos
+              {t('ourPackages.description')}
             </p>
           </div>
           <PackageCarousel currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />

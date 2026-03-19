@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import Header from './Header';
 
 const contactInfo = {
@@ -20,11 +21,11 @@ const contactInfo = {
   ],
 };
 
-const subjects = [
-  'Ventas y cotizaciones',
-  'Soporte técnico',
-  'Información general',
-  'Otro',
+const getSubjects = (t) => [
+  t('contact.subjects.sales'),
+  t('contact.subjects.support'),
+  t('contact.subjects.general'),
+  t('contact.subjects.other'),
 ];
 
 function InfoBlock({ label, children }) {
@@ -80,6 +81,8 @@ const LNG = -102.30639;
 
 export default function Contact() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+  const subjects = getSubjects(t);
   const [form, setForm] = useState({
     name: '', company: '', phone: '', email: '', subject: '', message: '',
   });
@@ -157,7 +160,7 @@ export default function Contact() {
               fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em',
               textTransform: 'uppercase', color: '#38bdf8',
             }}>
-              Contáctanos
+              {t('contact.hero.eyebrow')}
             </span>
           </div>
           <h1 style={{
@@ -167,13 +170,13 @@ export default function Contact() {
             color: isDark ? '#fff' : '#051e30', letterSpacing: '-0.03em',
             marginBottom: '16px',
           }}>
-            Estamos<br />
+            {t('contact.hero.title').split(' ')[0]}<br />
             <span style={{ WebkitTextStroke: `2px ${isDark ? 'rgba(56,189,248,0.65)' : 'rgba(56,189,248,0.8)'}`, color: 'transparent' }}>
-              Listos
+              {t('contact.hero.title').split(' ')[1]}
             </span>
           </h1>
           <p style={{ color: isDark ? 'rgba(186,220,244,0.65)' : '#051e30', fontSize: '1.05rem', lineHeight: 1.7, maxWidth: '500px' }}>
-            Recibimos sus consultas con gusto. Nuestro equipo está disponible para atenderle y brindarle la mejor solución en empaques.
+            {t('contact.hero.description')}
           </p>
         </motion.div>
 
@@ -203,17 +206,17 @@ export default function Contact() {
               2005
             </div>
 
-            <InfoBlock label="Ubicación">
+            <InfoBlock label={t('contact.info.location')}>
               <p style={{ color: isDark ? 'rgba(210,235,252,0.85)' : '#051e30', lineHeight: 1.75 }}>
                 <strong style={{ color: isDark ? '#fff' : '#051e30', fontFamily: 'Syne, sans-serif', display: 'block', marginBottom: '4px', fontSize: '1.1rem' }}>
-                  Jacona, Michoacán
+                  {t('contact.info.city')}
                 </strong>
-                {contactInfo.address.street}<br />
-                {contactInfo.address.cp}
+                {t('contact.info.address1')}<br />
+                {t('contact.info.address2')}
               </p>
             </InfoBlock>
 
-            <InfoBlock label="Teléfonos">
+            <InfoBlock label={t('contact.info.phone')}>
               <div className="flex flex-col gap-2">
                 {contactInfo.phones.map((p) => (
                   <a key={p} href={`tel:${p.replace(/\D/g, '')}`}
@@ -226,7 +229,7 @@ export default function Contact() {
               </div>
             </InfoBlock>
 
-            <InfoBlock label="Correo Electrónico">
+            <InfoBlock label={t('contact.info.email')}>
               <div className="flex flex-col gap-1">
                 {contactInfo.emails.map((email) => (
                   <a key={email} href={`mailto:${email}`}
@@ -251,10 +254,10 @@ export default function Contact() {
                   fontSize: '1.5rem', color: '#22c55e',
                 }}>✓</div>
                 <h3 style={{ fontFamily: 'Syne, sans-serif', color: isDark ? '#fff' : '#051e30', fontSize: '1.4rem', fontWeight: 800 }}>
-                  Mensaje enviado
+                  {t('contact.success.title')}
                 </h3>
                 <p style={{ color: isDark ? 'rgba(186,220,244,0.6)' : 'rgba(5,30,48,0.6)', fontSize: '0.95rem' }}>
-                  Le responderemos en un plazo máximo de 24 horas hábiles.
+                  {t('contact.success.description')}
                 </p>
                 <button onClick={() => setSent(false)} style={{
                   marginTop: '8px', padding: '10px 24px',
@@ -262,48 +265,48 @@ export default function Contact() {
                   color: isDark ? '#38bdf8' : '#0284c7', background: isDark ? 'rgba(56,189,248,0.07)' : 'rgba(56,189,248,0.1)',
                   fontFamily: 'DM Sans, sans-serif', cursor: 'pointer', fontSize: '0.9rem',
                 }}>
-                  Enviar otro mensaje
+                  {t('contact.success.button')}
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <h2 style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.4rem', fontWeight: 800, color: isDark ? '#fff' : '#051e30', marginBottom: '8px' }}>
-                  Envíenos un mensaje
+                  {t('contact.info.formHeading')}
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Field label="Nombre">
+                  <Field label={t('contact.form.name.label')}>
                     <input name="name" value={form.name} onChange={handleChange}
-                      placeholder="Su nombre completo" required style={inputStyleDynamic} />
+                      placeholder={t('contact.form.name.placeholder')} required style={inputStyleDynamic} />
                   </Field>
-                  <Field label="Empresa">
+                  <Field label={t('contact.form.company.label')}>
                     <input name="company" value={form.company} onChange={handleChange}
-                      placeholder="Nombre de su empresa" style={inputStyleDynamic} />
+                      placeholder={t('contact.form.company.placeholder')} style={inputStyleDynamic} />
                   </Field>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Field label="Teléfono">
+                  <Field label={t('contact.form.phone.label')}>
                     <input name="phone" value={form.phone} onChange={handleChange}
-                      placeholder="(000) 000 0000" type="tel" style={inputStyleDynamic} />
+                      placeholder={t('contact.form.phone.placeholder')} type="tel" style={inputStyleDynamic} />
                   </Field>
-                  <Field label="Email">
+                  <Field label={t('contact.form.email.label')}>
                     <input name="email" value={form.email} onChange={handleChange}
-                      placeholder="correo@empresa.com" type="email" required style={inputStyleDynamic} />
+                      placeholder={t('contact.form.email.placeholder')} type="email" required style={inputStyleDynamic} />
                   </Field>
                 </div>
 
-                <Field label="Asunto">
+                <Field label={t('contact.form.subject.label')}>
                   <select name="subject" value={form.subject} onChange={handleChange}
                     style={{ ...inputStyleDynamic, appearance: 'none' }}>
-                    <option value="">Seleccione un tema…</option>
+                    <option value="">{t('contact.form.subject.placeholder')}</option>
                     {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </Field>
 
-                <Field label="Mensaje">
+                <Field label={t('contact.form.message.label')}>
                   <textarea name="message" value={form.message} onChange={handleChange}
-                    placeholder="Describa su consulta o necesidad…" required rows={5}
+                    placeholder={t('contact.form.message.placeholder')} required rows={5}
                     style={{ ...inputStyleDynamic, resize: 'vertical' }} />
                 </Field>
 
@@ -314,10 +317,10 @@ export default function Contact() {
                   fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.1em',
                   textTransform: 'uppercase', cursor: 'pointer',
                 }}>
-                  Enviar mensaje →
+                  {t('contact.form.submitButton')}
                 </button>
                 <p style={{ fontSize: '0.75rem', color: isDark ? 'rgba(186,220,244,0.35)' : 'rgba(5,30,48,0.35)', textAlign: 'center' }}>
-                  Respondemos en un plazo máximo de 24 horas hábiles.
+                  {t('contact.form.responseMessage')}
                 </p>
               </form>
             )}
@@ -375,7 +378,7 @@ export default function Contact() {
                   transition: 'background 0.2s',
                 }}
               >
-                Abrir en Maps
+                {t('contact.location.mapsButton')}
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
                   <path d="M2 9L9 2M9 2H4M9 2v5" stroke={isDark ? '#38bdf8' : '#0284c7'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -413,7 +416,7 @@ export default function Contact() {
         <div className="flex flex-wrap items-center justify-between gap-4 mt-8 pt-6"
           style={{ borderTop: `1px solid ${isDark ? 'rgba(56,189,248,0.08)' : 'rgba(56,189,248,0.15)'}` }}>
           <span style={{ fontSize: '0.8rem', color: isDark ? 'rgba(186,220,244,0.35)' : 'rgba(5,30,48,0.35)' }}>
-            Sirviendo a nuestros clientes desde <span style={{ color: isDark ? '#38bdf8' : '#0284c7', fontWeight: 600 }}>2005</span>
+            {t('contact.location.tenure').split('2005')[0]}<span style={{ color: isDark ? '#38bdf8' : '#0284c7', fontWeight: 600 }}>2005</span>{t('contact.location.tenure').split('2005')[1]}
           </span>
           <span style={{ fontSize: '0.8rem', color: isDark ? 'rgba(186,220,244,0.35)' : 'rgba(5,30,48,0.35)' }}>
             Jacona, Michoacán <span style={{ color: isDark ? 'rgba(56,189,248,0.3)' : 'rgba(56,189,248,0.5)' }}>·</span> México

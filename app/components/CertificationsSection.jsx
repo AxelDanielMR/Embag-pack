@@ -5,40 +5,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 // Replace logo paths and descriptions with your actual content
 
-const certifications = [
+const getCertifications = (t) => [
   {
     id: "sqf",
-    name: "SQF",
-    description:
-      "Safe Quality Food — estándar internacional de inocuidad y calidad alimentaria reconocido por GFSI.",
+    name: t('certifications.sqf.title'),
+    description: t('certifications.sqf.description'),
     website: "https://www.sqfi.com",
     logo: "/images/certifications/sqf.png",
   },
   {
     id: "kosher",
-    name: "Kosher",
-    description:
-      "Certificación que garantiza que nuestros productos cumplen con las leyes alimentarias judías.",
+    name: t('certifications.kosher.title'),
+    description: t('certifications.kosher.description'),
     website: "https://www.ok.org",
     logo: "/images/certifications/kosher.png",
   },
   {
     id: "laqi",
-    name: "LAQI",
-    description:
-      "Latin American Quality Institute — reconocimiento a la excelencia en calidad empresarial.",
+    name: t('certifications.laqi.title'),
+    description: t('certifications.laqi.description'),
     website: "https://www.laqi.org",
     logo: "/images/certifications/laqui.png",
   },
   {
-    id: "anippac",
-    name: "ANIPPAC",
-    description:
-      "Asociación Nacional de Industrias del Plástico — compromiso con la sustentabilidad y buenas prácticas.",
+    id: "anipac",
+    name: t('certifications.anipac.title'),
+    description: t('certifications.anipac.description'),
     website: "https://www.anippac.org.mx",
     logo: "/images/certifications/anipac.png",
   },
@@ -50,6 +47,7 @@ function CertCard({
   cert,
   index,
   isDark,
+  t,
 }) {
   return (
     <motion.div
@@ -103,7 +101,7 @@ function CertCard({
                      transition-colors duration-200"
           style={{ color: "#0c87c9" }}
         >
-          <span>Visitar sitio</span>
+          <span>{t('certificationsSection.visitSite')}</span>
           <motion.span
             className="inline-flex"
             initial={{ x: 0 }}
@@ -122,6 +120,8 @@ function CertCard({
 
 export default function CertificationsSection() {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+  const certifications = getCertifications(t);
   return (
     <section className={`w-full py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-white'}`}>
       <div className="max-w-5xl mx-auto">
@@ -138,11 +138,10 @@ export default function CertificationsSection() {
             className={`text-4xl font-bold mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            Nuestras certificaciones
+            {t('certificationsSection.title')}
           </h2>
           <p className={`max-w-xl text-base leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-            Contamos con avales internacionales que respaldan nuestro compromiso
-            con la calidad, la inocuidad y la sustentabilidad.
+            {t('certificationsSection.description')}
           </p>
           {/* Decorative underline */}
           <motion.div
@@ -158,7 +157,7 @@ export default function CertificationsSection() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {certifications.map((cert, i) => (
-            <CertCard key={cert.id} cert={cert} index={i} isDark={isDark} />
+            <CertCard key={cert.id} cert={cert} index={i} isDark={isDark} t={t} />
           ))}
         </div>
       </div>

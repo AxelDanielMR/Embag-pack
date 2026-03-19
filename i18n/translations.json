@@ -1,0 +1,168 @@
+{
+  "es": {
+    "header": {
+      "nav": {
+        "home": "Inicio",
+        "about": "Nosotros",
+        "packaging": "Empaques",
+        "contact": "Contacto"
+      }
+    },
+    "homePage": {
+      "stats": {
+        "satisfiedClients": "Clientes Satisfechos",
+        "availableProducts": "Productos Disponibles",
+        "nationalCoverage": "Cobertura a Nivel País"
+      },
+      "featureCards": {
+        "title1": "Ofreciendo el mejor Empaque Flexible de Polietileno de baja densidad certificado",
+        "description1": "En Embag Pack, priorizamos su satisfacción al ofrecer un empaque certificado, con procesos basados en el desarrollo de nuestro capital humano. Comprometido con la inocuidad, calidad y el servicio a nuestros clientes y sociedad en general.",
+        "title2": "Priorizando la Seguridad Interna y la Protección del Cliente",
+        "description2": "En Embag Pack, estamos dedicados a brindar a nuestros clientes el más alto nivel de inocuidad y calidad, a través de nuestras certificaciones y nuestro compromiso con medidas de seguridad internas, alcanzamos la seguridad y confianza de nuestros clientes al trabajar con nosotros."
+      },
+      "badges": {
+        "foodSafety": "Inocuidad",
+        "certifiedProcesses": "Procesos Certificados",
+        "rawMaterials": "Materia Prima"
+      },
+      "industries": {
+        "automotive": "Automotriz",
+        "foodBeverage": "Alimenticia",
+        "agroIndustry": "Agroindustria",
+        "automotiveTitle": "Soluciones de Empaque Especializadas para la Industria Automotriz",
+        "automotiveDesc": "En Embag Pack, comprendemos la importancia crítica del empaque en la industria automotriz. Nuestros servicios están diseñados para proteger componentes delicados y optimizar la cadena de suministro con soluciones personalizadas.",
+        "foodTitle": "Soluciones de Empaque Innovadoras para la Industria Alimenticia",
+        "foodDesc": "En Embag Pack, reconocemos la importancia de la seguridad y frescura en la industria alimenticia. Ofrecemos soluciones que preservan calidad y cumplen normativas de inocuidad alimentaria.",
+        "agroTitle": "Soluciones de Empaque Confiables para la Agroindustria",
+        "agroDesc": "Entendemos la importancia de la trazabilidad y protección en la agroindustria. Brindamos soluciones que garantizan seguridad, cumplimiento normativo y preservación del producto."
+      }
+    },
+    "carousel": {
+      "slide1": {
+        "title": "Procesos certificados para tu seguridad",
+        "description": "Con nuestra experiencia y dedicación, garantizamos que sus productos estén bien protegidos y cumplan con los estándares más altos."
+      },
+      "slide2": {
+        "title": "Garantizando inocuidad en tus empaques",
+        "description": "Garantizando Inocuidad con Nuestros Servicios de Empaque: Tenemos el Compromiso con la Calidad y la Seguridad en Cada Producto."
+      },
+      "slide3": {
+        "title": "Entrega rápida y confiable",
+        "description": "Con nuestra red logística nacional, garantizamos que tus empaques lleguen a tiempo y en perfecto estado."
+      },
+      "navigation": {
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "learnMore": "Saber más"
+      }
+    },
+    "ourPackages": {
+      "title": "Nuestras Soluciones",
+      "description": "Descubre soluciones de empaque diseñadas para proteger y potenciar tus productos"
+    },
+    "packageCarousel": {
+      "categories": {
+        "agroIndustry": "Empaques Agroindustria",
+        "food": "Alimentos",
+        "automotive": "Automotriz",
+        "industrial": "Empaques Industriales"
+      },
+      "descriptions": {
+        "agroIndustry": "La agroindustria requiere soluciones de empaque especializadas que abarcan desde la producción de alimentos hasta el procesamiento, almacenamiento y distribución. En Embag Pack entendemos estas necesidades con 15 años de experiencia. Garantizamos protección superior, trazabilidad completa, versatilidad en diseños y certificación de calidad.",
+        "food": "Nos hemos consolidado como expertos en empaques de grado alimenticio, respaldados por certificaciones Kosher y SQF. La seguridad e inocuidad de los alimentos es primordial, por eso cada producto está diseñado bajo estrictos controles de calidad. Ofrecemos inocuidad garantizada y trazabilidad completa.",
+        "automotive": "Desarrollamos empaques especializados que cumplen con exigentes especificaciones del sector automotriz. Nuestras soluciones protegen componentes críticos y mantienen la integridad durante la cadena de suministro. Ofrecemos protección superior contra daños y control de estática.",
+        "industrial": "Ofrecemos soluciones versátiles y especializadas para las necesidades específicas de cada sector industrial. Con 15 años de experiencia y certificaciones internacionales, garantizamos protección, eficiencia y calidad en todos nuestros empaques."
+      }
+    },
+    "aboutSection": {
+      "stats": {
+        "yearsExperience": "Años de experiencia",
+        "certifiedQuality": "Calidad certificada",
+        "nationalPresence": "Presencia nacional"
+      }
+    }
+  },
+  "en": {
+    "header": {
+      "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "packaging": "Packaging",
+        "contact": "Contact"
+      }
+    },
+    "homePage": {
+      "stats": {
+        "satisfiedClients": "Satisfied Clients",
+        "availableProducts": "Available Products",
+        "nationalCoverage": "National Coverage"
+      },
+      "featureCards": {
+        "title1": "Offering the best low-density polyethylene flexible packaging certified",
+        "description1": "At Embag Pack, we prioritize your satisfaction by offering certified packaging, with processes based on the development of our human capital. Committed to food safety, quality, and service to our customers and society at large.",
+        "title2": "Prioritizing Internal Safety and Customer Protection",
+        "description2": "At Embag Pack, we are dedicated to providing our customers with the highest level of food safety and quality, through our certifications and commitment to internal safety measures, we achieve the security and trust of our customers when working with us."
+      },
+      "badges": {
+        "foodSafety": "Food Safety",
+        "certifiedProcesses": "Certified Processes",
+        "rawMaterials": "Raw Materials"
+      },
+      "industries": {
+        "automotive": "Automotive",
+        "foodBeverage": "Food & Beverage",
+        "agroIndustry": "Agro-industry",
+        "automotiveTitle": "Specialized Packaging Solutions for the Automotive Industry",
+        "automotiveDesc": "At Embag Pack, we understand the critical importance of packaging in the automotive industry. Our services are designed to protect delicate components and optimize the supply chain with customized solutions.",
+        "foodTitle": "Innovative Packaging Solutions for the Food Industry",
+        "foodDesc": "At Embag Pack, we recognize the importance of safety and freshness in the food industry. We offer solutions that preserve quality and comply with food safety regulations.",
+        "agroTitle": "Reliable Packaging Solutions for Agro-industry",
+        "agroDesc": "We understand the importance of traceability and protection in agro-industry. We provide solutions that guarantee safety, regulatory compliance, and product preservation."
+      }
+    },
+    "carousel": {
+      "slide1": {
+        "title": "Certified processes for your safety",
+        "description": "With our experience and dedication, we guarantee that your products are well protected and meet the highest standards."
+      },
+      "slide2": {
+        "title": "Guaranteeing food safety in your packaging",
+        "description": "Guaranteeing Food Safety with Our Packaging Services: We Commit to Quality and Safety in Every Product."
+      },
+      "slide3": {
+        "title": "Fast and reliable delivery",
+        "description": "With our national logistics network, we guarantee that your packaging arrives on time and in perfect condition."
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next",
+        "learnMore": "Learn more"
+      }
+    },
+    "ourPackages": {
+      "title": "Our Solutions",
+      "description": "Discover packaging solutions designed to protect and enhance your products"
+    },
+    "packageCarousel": {
+      "categories": {
+        "agroIndustry": "Agro-industry Packaging",
+        "food": "Food",
+        "automotive": "Automotive",
+        "industrial": "Industrial Packaging"
+      },
+      "descriptions": {
+        "agroIndustry": "Agro-industry requires specialized packaging solutions ranging from food production to processing, storage, and distribution. At Embag Pack, we understand these needs with 15 years of experience. We guarantee superior protection, complete traceability, design versatility, and quality certification.",
+        "food": "We have established ourselves as experts in food-grade packaging, backed by Kosher and SQF certifications. Food safety and hygiene are paramount, so every product is designed under strict quality controls. We offer guaranteed food safety and complete traceability.",
+        "automotive": "We develop specialized packaging that meets demanding automotive sector specifications. Our solutions protect critical components and maintain integrity throughout the supply chain. We offer superior protection against damage and static control.",
+        "industrial": "We offer versatile and specialized solutions for the specific needs of each industrial sector. With 15 years of experience and international certifications, we guarantee protection, efficiency, and quality in all our packaging."
+      }
+    },
+    "aboutSection": {
+      "stats": {
+        "yearsExperience": "Years of experience",
+        "certifiedQuality": "Certified quality",
+        "nationalPresence": "National presence"
+      }
+    }
+  }
+}
