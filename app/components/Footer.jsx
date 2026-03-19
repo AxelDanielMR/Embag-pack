@@ -134,7 +134,7 @@ export default function Footer() {
       {/* ── Bottom bar ── */}
       <div className="relative z-10 flex items-center justify-between gap-4 px-14 py-5 mx-0" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <p className="text-[12px] tracking-[0.04em]" style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'DM Sans, sans-serif' }}>
-          © 2020–25 Embag Pack
+          © 2020–{new Date().getFullYear().toString().slice(-2)} Embag Pack
           <span style={{ color: 'rgba(255,255,255,0.12)', margin: '0 8px' }}>·</span>
           Todos los derechos reservados
         </p>

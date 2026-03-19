@@ -40,17 +40,18 @@ export default function Header() {
           initial={{ opacity: 0, x: -30 }}
           animate={logoHidden ? { opacity: 0, y: -20, scale: 0.95 } : { opacity: 1, x: 0, y: 0, scale: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="pt-4"
         >
           <Link href="/" aria-label="Inicio">
             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center flex-shrink-0 ml-3">
               <Image
                 src="/images/embag-pack.png"
                 alt="Embag Pack"
-                width={180}
-                height={180}
+                width={120}
+                height={120}
                 priority
                 style={{ objectFit: 'contain' }}
-                className="h-28 w-auto"
+                className="h-20 w-auto"
               />
             </motion.div>
           </Link>

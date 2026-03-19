@@ -150,7 +150,7 @@ export default function Empaques() {
       {/* Call to Action */}
       <section className={`${isDark ? 'bg-slate-800' : 'bg-gray-50'} section transition-colors duration-300`}>
         <div className="container-custom text-center">
-          <h2 className="heading-section mb-4">¿No encontraste lo que buscas?</h2>
+          <h2 className={`heading-section mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>¿No encontraste lo que buscas?</h2>
           <p className="subheading mb-8">
             Contáctanos para solicitar productos personalizados o consultar disponibilidad
           </p>

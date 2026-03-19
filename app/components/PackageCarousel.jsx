@@ -76,7 +76,7 @@ export default function PackageCarousel({ currentIndex, setCurrentIndex }) {
             <motion.button
               key={pkg.id}
               onClick={() => setCurrentIndex(index)}
-              className={`w-full text-left transition-all duration-300 rounded-xl overflow-hidden group ${
+              className={`w-full text-left transition-all duration-300 rounded-xl overflow-hidden group cursor-pointer ${
                 index === currentIndex
                   ? 'ring-2 ring-white/50'
                   : 'opacity-50 hover:opacity-75'
