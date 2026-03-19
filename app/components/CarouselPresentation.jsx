@@ -33,15 +33,12 @@ export default function CarouselPresentation() {
     },
   ];
 
-export default function CarouselPresentation() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const { isDark } = useTheme();
+  const [showLeftArrow, setShowLeftArrow] = useState(true);
+  const [showRightArrow, setShowRightArrow] = useState(true);
   const sectionRef = useRef(null);
   const leftBtnRef = useRef(null);
   const rightBtnRef = useRef(null);
-  const [showLeft, setShowLeft] = useState(true);
-  const [showRight, setShowRight] = useState(true);
-  const isImage01 = slides[currentSlide].image === '/images/image_01.jpg';
+  const isImage01 = currentSlide === 0;
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -75,10 +72,10 @@ export default function CarouselPresentation() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.target === leftBtnRef.current) {
-            setShowLeft(entry.intersectionRatio >= 1);
+            setShowLeftArrow(entry.intersectionRatio >= 1);
           }
           if (entry.target === rightBtnRef.current) {
-            setShowRight(entry.intersectionRatio >= 1);
+            setShowRightArrow(entry.intersectionRatio >= 1);
           }
         });
       },
@@ -137,9 +134,9 @@ export default function CarouselPresentation() {
               : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
           }`}
           aria-label="Anterior"
-          animate={{ opacity: showLeft ? 1 : 0 }}
+          animate={{ opacity: showLeftArrow ? 1 : 0 }}
           transition={{ duration: 0.25 }}
-          style={{ pointerEvents: showLeft ? 'auto' : 'none' }}
+          style={{ pointerEvents: showLeftArrow ? 'auto' : 'none' }}
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -158,9 +155,9 @@ export default function CarouselPresentation() {
               : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
           }`}
           aria-label="Siguiente"
-          animate={{ opacity: showRight ? 1 : 0 }}
+          animate={{ opacity: showRightArrow ? 1 : 0 }}
           transition={{ duration: 0.25 }}
-          style={{ pointerEvents: showRight ? 'auto' : 'none' }}
+          style={{ pointerEvents: showRightArrow ? 'auto' : 'none' }}
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
