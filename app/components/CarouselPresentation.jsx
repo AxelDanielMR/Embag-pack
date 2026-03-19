@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import ButtonHover from './ButtonHover';
@@ -33,6 +33,14 @@ export default function CarouselPresentation() {
     },
   ];
 
+export default function CarouselPresentation() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const { isDark } = useTheme();
+  const sectionRef = useRef(null);
+  const leftBtnRef = useRef(null);
+  const rightBtnRef = useRef(null);
+  const [showLeft, setShowLeft] = useState(true);
+  const [showRight, setShowRight] = useState(true);
   const isImage01 = slides[currentSlide].image === '/images/image_01.jpg';
 
   const nextSlide = () => {
@@ -60,6 +68,29 @@ export default function CarouselPresentation() {
     }),
   };
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === leftBtnRef.current) {
+            setShowLeft(entry.intersectionRatio >= 1);
+          }
+          if (entry.target === rightBtnRef.current) {
+            setShowRight(entry.intersectionRatio >= 1);
+          }
+        });
+      },
+      { root: sectionRef.current, threshold: [0, 0.99, 1] }
+    );
+
+    if (leftBtnRef.current) observer.observe(leftBtnRef.current);
+    if (rightBtnRef.current) observer.observe(rightBtnRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   const elementVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -68,6 +99,7 @@ export default function CarouselPresentation() {
   return (
     <div className="w-full" style={{ backgroundColor: isDark ? '#0f1419' : '#0c87c9' }}>
       <section
+        ref={sectionRef}
         className="relative w-full min-h-[110vh] lg:min-h-[120vh] flex items-center justify-between overflow-hidden -mt-96 pt-80"
         style={{
           background: isDark
@@ -95,6 +127,7 @@ export default function CarouselPresentation() {
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-40 flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Arrow */}
         <motion.button
+          ref={leftBtnRef}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.98 }}
           onClick={prevSlide}
@@ -103,7 +136,10 @@ export default function CarouselPresentation() {
               ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
               : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
           }`}
-          aria-label={t('carousel.navigation.previous')}
+          aria-label="Anterior"
+          animate={{ opacity: showLeft ? 1 : 0 }}
+          transition={{ duration: 0.25 }}
+          style={{ pointerEvents: showLeft ? 'auto' : 'none' }}
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -112,6 +148,7 @@ export default function CarouselPresentation() {
 
         {/* Right Arrow */}
         <motion.button
+          ref={rightBtnRef}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.98 }}
           onClick={nextSlide}
@@ -120,7 +157,10 @@ export default function CarouselPresentation() {
               ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
               : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
           }`}
-          aria-label={t('carousel.navigation.next')}
+          aria-label="Siguiente"
+          animate={{ opacity: showRight ? 1 : 0 }}
+          transition={{ duration: 0.25 }}
+          style={{ pointerEvents: showRight ? 'auto' : 'none' }}
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
