@@ -2,13 +2,14 @@
 
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import ButtonHover from './ButtonHover';
 
 export default function CarouselPresentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const dragStartX = useRef(null);
   const { isDark } = useTheme();
   const { t } = useLanguage();
 
@@ -33,11 +34,6 @@ export default function CarouselPresentation() {
     },
   ];
 
-  const [showLeftArrow, setShowLeftArrow] = useState(true);
-  const [showRightArrow, setShowRightArrow] = useState(true);
-  const sectionRef = useRef(null);
-  const leftBtnRef = useRef(null);
-  const rightBtnRef = useRef(null);
   const isImage01 = currentSlide === 0;
 
   const nextSlide = () => {
@@ -46,6 +42,37 @@ export default function CarouselPresentation() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const resetSwipe = () => {
+    dragStartX.current = null;
+  };
+
+  const handlePointerDown = (event) => {
+    const interactiveTarget = event.target.closest('button, a, [role="button"]');
+    if (interactiveTarget) {
+      resetSwipe();
+      return;
+    }
+
+    dragStartX.current = event.clientX;
+  };
+
+  const handlePointerUp = (event) => {
+    if (dragStartX.current === null) return;
+
+    const swipeDistance = event.clientX - dragStartX.current;
+    const swipeThreshold = 60;
+
+    if (Math.abs(swipeDistance) >= swipeThreshold) {
+      if (swipeDistance < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+
+    resetSwipe();
   };
 
   const slideVariants = {
@@ -65,43 +92,24 @@ export default function CarouselPresentation() {
     }),
   };
 
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target === leftBtnRef.current) {
-            setShowLeftArrow(entry.intersectionRatio >= 1);
-          }
-          if (entry.target === rightBtnRef.current) {
-            setShowRightArrow(entry.intersectionRatio >= 1);
-          }
-        });
-      },
-      { root: sectionRef.current, threshold: [0, 0.99, 1] }
-    );
-
-    if (leftBtnRef.current) observer.observe(leftBtnRef.current);
-    if (rightBtnRef.current) observer.observe(rightBtnRef.current);
-
-    return () => observer.disconnect();
-  }, []);
-
   const elementVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <div className="w-full" style={{ backgroundColor: isDark ? '#0f1419' : '#0c87c9' }}>
+    <div className="w-full" style={{ backgroundColor: isDark ? '#0f1419' : '#f0f6fb' }}>
       <section
-        ref={sectionRef}
-        className="relative w-full min-h-[110vh] lg:min-h-[120vh] flex items-center justify-between overflow-hidden -mt-96 pt-80"
+        className="relative w-full min-h-[110vh] lg:min-h-[120vh] flex items-center justify-between overflow-hidden -mt-96 pt-80 select-none"
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={resetSwipe}
+        onPointerLeave={resetSwipe}
         style={{
+          touchAction: 'pan-y',
           background: isDark
-            ? 'linear-gradient(135deg, #0f1419 0%, #1a2a3a 50%, #2d3e4e 100%)'
-            : 'linear-gradient(135deg, #0c87c9 0%, #0da5e8 50%, #ffffff 100%)',
+            ? 'linear-gradient(135deg, #0f1419 0%, #1a2a3a 90%, #2d3e4e 100%)'
+            : 'linear-gradient(135deg, #ffffff 0%, #73c8e5 90%, #31A9E0 100%)',
         }}
       >
       {/* Noise overlay effect */}
@@ -122,48 +130,6 @@ export default function CarouselPresentation() {
 
       {/* Content container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-40 flex flex-col lg:flex-row items-center justify-between gap-12">
-        {/* Left Arrow */}
-        <motion.button
-          ref={leftBtnRef}
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={prevSlide}
-          className={`absolute -left-20 top-1/2 transform -translate-y-1/2 z-30 p-4 rounded-full transition-all shadow-lg ring-1 ${
-            isDark
-              ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
-              : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
-          }`}
-          aria-label="Anterior"
-          animate={{ opacity: showLeftArrow ? 1 : 0 }}
-          transition={{ duration: 0.25 }}
-          style={{ pointerEvents: showLeftArrow ? 'auto' : 'none' }}
-        >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </motion.button>
-
-        {/* Right Arrow */}
-        <motion.button
-          ref={rightBtnRef}
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={nextSlide}
-          className={`absolute -right-20 top-1/2 transform -translate-y-1/2 z-30 p-4 rounded-full transition-all shadow-lg ring-1 ${
-            isDark
-              ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
-              : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
-          }`}
-          aria-label="Siguiente"
-          animate={{ opacity: showRightArrow ? 1 : 0 }}
-          transition={{ duration: 0.25 }}
-          style={{ pointerEvents: showRightArrow ? 'auto' : 'none' }}
-        >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </motion.button>
-
         {/* Left side - Text content */}
         <AnimatePresence mode="wait" custom={1}>
           <motion.div
@@ -186,7 +152,7 @@ export default function CarouselPresentation() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${
-                isDark ? 'text-white' : 'text-white'
+                isDark ? 'text-white' : 'text-[#084a77]'
               }`}>
                 {slides[currentSlide].title}
               </h1>
@@ -199,7 +165,7 @@ export default function CarouselPresentation() {
               transition={{ duration: 0.5, delay: 0.25 }}
             >
               <p className={`text-lg mb-8 leading-relaxed ${
-                isDark ? 'text-gray-200' : 'text-blue-50'
+                isDark ? 'text-gray-200' : 'text-[#084a77]'
               }`}>
                 {slides[currentSlide].description}
               </p>
@@ -267,26 +233,60 @@ export default function CarouselPresentation() {
       </AnimatePresence>
 
       {/* Carousel Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
-        {slides.map((_, index) => (
-          <motion.div
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`h-2 rounded-full cursor-pointer ${
-              isDark
-                ? currentSlide === index
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
+        <motion.button
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={prevSlide}
+          className={`p-3 rounded-full transition-all shadow-lg ring-1 ${
+            isDark
+              ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
+              : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
+          }`}
+          aria-label="Anterior"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </motion.button>
+
+        <div className="flex items-center gap-3">
+          {slides.map((_, index) => (
+            <motion.div
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full cursor-pointer ${
+                isDark
+                  ? currentSlide === index
+                    ? 'bg-white'
+                    : 'bg-gray-400 bg-opacity-50'
+                  : currentSlide === index
                   ? 'bg-white'
-                  : 'bg-gray-400 bg-opacity-50'
-                : currentSlide === index
-                ? 'bg-white'
-                : 'bg-white bg-opacity-40'
-            }`}
-            animate={{
-              width: currentSlide === index ? 32 : 8,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-        ))}
+                  : 'bg-white bg-opacity-40'
+              }`}
+              animate={{
+                width: currentSlide === index ? 32 : 8,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+          ))}
+        </div>
+
+        <motion.button
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={nextSlide}
+          className={`p-3 rounded-full transition-all shadow-lg ring-1 ${
+            isDark
+              ? 'bg-gray-800 bg-opacity-70 hover:bg-opacity-90 text-white ring-gray-600/30'
+              : 'bg-white bg-opacity-60 hover:bg-opacity-80 text-[#084a77] ring-white/30'
+          }`}
+          aria-label="Siguiente"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </motion.button>
       </div>
       </section>
     </div>

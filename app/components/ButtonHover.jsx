@@ -1,15 +1,18 @@
 'use client';
 
 import Link from 'next/link';
+import { useTheme } from '../context/ThemeContext';
 
 export default function ButtonHover({ href, children }) {
+  const { isDark } = useTheme();
+
   return (
     <Link href={href}>
       <button
         className="bubbles"
         style={{
-          '--c1': '#ffffff',
-          '--c2': '#b4eee8',
+          '--c1': isDark ? '#0f1419' : '#f0f6fb',
+          '--c2': '#31A9E0',
           '--size-letter': '18px',
         }}
       >
